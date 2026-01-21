@@ -1,77 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ABC Financial Services</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>ARS Financial Solutions | Audit • Tax • GST • ROC</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ARS Financial Solutions provides Audit, Income Tax, GST, ROC compliance, company incorporation and financial advisory services across India.">
+  <meta name="keywords" content="CA firm, GST filing, income tax, audit services, ROC compliance">
+  <meta name="author" content="ARS Financial Solutions">
+
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<header>
+<!-- HEADER -->
+<header id="header">
   <div class="container">
-    <h1>ABC Financial Services</h1>
+    <div class="logo">ARS Financial Solutions</div>
     <nav>
+      <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#why">Why Us</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
-  <h2>Trusted Financial & Compliance Solutions</h2>
-  <p>Audit | Tax | GST | ROC | Advisory</p>
-  <a href="#contact" class="btn">Get Consultation</a>
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1>Professional Financial & Compliance Services</h1>
+  <p>Audit • Tax • GST • ROC • Advisory</p>
+  <a href="#contact" class="btn-primary">Get Free Consultation</a>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="section">
-  <h2>About Us</h2>
+  <h2>About ARS Financial Solutions</h2>
   <p>
-    ABC Financial Services is a professional financial consultancy firm
-    providing audit, taxation, GST, ROC and advisory services to businesses
-    across India.
+    We are a professional financial services firm delivering end-to-end
+    compliance, taxation, audit, and advisory services with a focus on
+    accuracy, ethics, and timeliness.
   </p>
 </section>
 
+<!-- SERVICES -->
 <section id="services" class="section gray">
-  <h2>Our Services</h2>
-  <div class="cards">
-    <div class="card">Audit & Assurance</div>
-    <div class="card">Income Tax Filing</div>
-    <div class="card">GST Registration & Returns</div>
-    <div class="card">Company Incorporation</div>
-    <div class="card">ROC & MCA Compliance</div>
-    <div class="card">Business Advisory</div>
+  <h2>Our Core Services</h2>
+
+  <div class="services-grid">
+    <div class="service-box">Audit & Assurance</div>
+    <div class="service-box">Income Tax Filing</div>
+    <div class="service-box">GST Registration & Returns</div>
+    <div class="service-box">Company Incorporation</div>
+    <div class="service-box">ROC & MCA Compliance</div>
+    <div class="service-box">Business & Financial Advisory</div>
   </div>
 </section>
 
-<section id="why" class="section">
-  <h2>Why Choose Us</h2>
-  <ul class="why-list">
-    <li>✔ Experienced Professionals</li>
-    <li>✔ Timely Compliance</li>
-    <li>✔ Transparent Pricing</li>
-    <li>✔ Dedicated Client Support</li>
-  </ul>
-</section>
-
-<section id="contact" class="section gray">
+<!-- CONTACT -->
+<section id="contact" class="section">
   <h2>Contact Us</h2>
-  <form onsubmit="sendMessage(event)">
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Email Address" required />
-    <input type="tel" placeholder="Mobile Number" required />
-    <textarea placeholder="Your Requirement"></textarea>
-    <button type="submit">Submit</button>
+
+  <!-- Replace Formspree URL if needed -->
+  <form action="https://formspree.io/f/xxxxx" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="tel" name="phone" placeholder="Mobile Number" required>
+    <textarea name="message" placeholder="Your Requirement" required></textarea>
+    <button type="submit">Submit Request</button>
   </form>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <p>© 2026 ABC Financial Services | All Rights Reserved</p>
+  <p>© 2026 ARS Financial Solutions. All Rights Reserved.</p>
 </footer>
 
-<script src="script.js"></script>
+<!-- WhatsApp Button -->
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp" target="_blank">💬</a>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
