@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Contact|ARS Financial Solutions</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us | ARS Financial Solutions</title>
+
 
 <style>
 /* RESET */
@@ -63,24 +64,23 @@ nav a:hover{color:#D97706}
   padding:0 10% 100px;
 }
 .contact-info{
-  background:#111;
-  color:#fff;
+  background:#ececec;
+  color:#ffffff;
   padding:30px;
   border-radius:20px;
 }
 .contact-info h3{
   color:#FBBF24;
-  margin-bottom:20px;
+  margin-bottom:10px;
 }
 .contact-info p{
   margin-bottom:15px;
-  color:#ddd;
+  color:#000000;
 }
 .contact-form{
-  background:#fff;
-  padding:30px;
+  background:#ececec;
+  padding:50px;
   border-radius:20px;
-  box-shadow:0 15px 30px rgba(0,0,0,0.08);
 }
 .contact-form h3{
   margin-bottom:20px;
@@ -88,7 +88,7 @@ nav a:hover{color:#D97706}
 .contact-form input,
 .contact-form textarea{
   width:100%;
-  padding:15px;
+  padding:10px;
   margin-bottom:15px;
   border-radius:8px;
   border:1px solid #ccc;
@@ -201,9 +201,10 @@ footer{
   📞 Call Us
 </a>
 
+
+
 <script>
-/* 🔴 REPLACE THIS WITH YOUR GOOGLE SCRIPT URL */
-const scriptURL = "PASTE_YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE";
+const scriptURL = "https://script.google.com/macros/s/AKfycbyPon87fbHRlxGVROgcg37Ox6nuCJNdUrP1vm2YJcPlG1024SM-M8fK3rF21BeACPbq/exec";
 
 document.getElementById("contactForm").addEventListener("submit", function(e){
   e.preventDefault();
@@ -212,33 +213,27 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
   btn.innerText = "Submitting...";
   btn.disabled = true;
 
-  const data = {
-    name: this.name.value,
-    email: this.email.value,
-    phone: this.phone.value,
-    message: this.message.value
-  };
-
   fetch(scriptURL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
+    body: new FormData(this)
   })
-  .then(res => res.json())
+  .then(res => res.text())
   .then(() => {
     alert("Thank you! Your enquiry has been submitted.");
     this.reset();
-    btn.innerText = "Submit Enquiry";
-    btn.disabled = false;
   })
   .catch(err => {
     alert("Submission failed. Please try again.");
+    console.error(err);
+  })
+  .finally(() => {
     btn.innerText = "Submit Enquiry";
     btn.disabled = false;
-    console.error(err);
   });
 });
 </script>
+
+
 
 </body>
 </html>
