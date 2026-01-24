@@ -145,31 +145,40 @@ textarea{
 
 /* MOBILE VIEW */
 @media(max-width:900px){
-  h1{font-size:28px}
- @media(max-width:900px){
 
   h1{font-size:28px}
   .subtitle{font-size:15px}
 
-  /* Horizontal cards on mobile */
+  /* Grid becomes vertical shell */
   .grid{
     display:flex;
-    gap:16px;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    padding-bottom:10px;
+    flex-direction:column;
+    gap:20px;
   }
 
-  .grid::-webkit-scrollbar{
+  /* Form card = locked */
+  .form-card{
+    position:relative;
+  }
+
+  /* Horizontal scroll ONLY for info card */
+  .scroll-wrapper{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:12px;
+  }
+
+  .scroll-wrapper::-webkit-scrollbar{
     height:6px;
   }
 
-  .grid::-webkit-scrollbar-thumb{
+  .scroll-wrapper::-webkit-scrollbar-thumb{
     background:#cbd5e1;
     border-radius:10px;
   }
 
-  .card{
+  .info-card{
     min-width:85%;
     flex:0 0 auto;
     scroll-snap-align:start;
@@ -181,20 +190,16 @@ textarea{
   }
 }
 
-  .card{padding:28px}
-  .container{padding:30px 16px}
-}
-
 @media(max-width:900px){
-  .grid::after{
-    content:"Swipe →";
-    position:absolute;
-    right:16px;
-    bottom:-8px;
+  .scroll-wrapper::after{
+    content:"Swipe for details →";
     font-size:12px;
     color:#64748b;
+    margin-left:12px;
+    align-self:center;
   }
 }
+
 
 </style>
 </head>
@@ -291,6 +296,7 @@ team@arsfinancialsolutions.com
 
 </body>
 </html>
+
 
 
 
