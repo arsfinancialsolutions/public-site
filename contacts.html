@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | ARS Financial Solutions</title>
+
+<style>
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter',sans-serif;
+  background:#fff;
+  color:#111;
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+
+/* HEADER */
+header{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 10%;background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(10px);transition:0.3s;
+}
+header.scrolled{box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+header h1{font-family:'Roboto',sans-serif;font-size:26px;}
+nav a{margin-left:10px;font-weight:600;}
+nav a:hover{color:#D97706}
+
+/* HERO */
+.page-hero{
+  padding:80px 10% 40px;
+  text-align:center;
+}
+
+.page-hero h2{
+  font-size:40px;
+  font-weight:700;
+
+  /* Fallback color */
+  color:#D97706;
+
+  /* Gradient text */
+  background:linear-gradient(90deg,#FBBF24,#D97706);
+  background-clip:text;               /* Standard */
+  -webkit-background-clip:text;       /* Chrome / Safari */
+  -webkit-text-fill-color:transparent;
+}
+
+.page-hero p{
+  margin-top:5px;
+  font-size:18px;
+  color:#444;
+}
+
+
+/* CONTACT */
+.contact-wrapper{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  padding:0 10% 100px;
+}
+.contact-info{
+  background:#111;
+  color:#fff;
+  padding:30px;
+  border-radius:20px;
+}
+.contact-info h3{
+  color:#FBBF24;
+  margin-bottom:20px;
+}
+.contact-info p{
+  margin-bottom:15px;
+  color:#ddd;
+}
+.contact-form{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 15px 30px rgba(0,0,0,0.08);
+}
+.contact-form h3{
+  margin-bottom:20px;
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:15px;
+  margin-bottom:15px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+.contact-form button{
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:50px;
+  font-weight:700;
+  font-size:16px;
+  background:linear-gradient(90deg,#FBBF24,#D97706);
+  color:#111;
+  cursor:pointer;
+  transition:0.3s;
+}
+.contact-form button:hover{
+  background:#111;
+  color:#FBBF24;
+}
+
+/* FLOATING BUTTONS */
+.contact-btn{
+  position:fixed;
+  bottom:50px;
+  padding:12px 20px;
+  border-radius:50px;
+  font-weight:600;
+  display:flex;
+  gap:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  z-index:999;
+  transition:0.3s;
+}
+.whatsapp-btn{
+  right:40px;
+  background:linear-gradient(90deg,#FBBF24,#D97706);
+}
+.call-btn{
+  left:25px;
+  background:linear-gradient(90deg,#FBBF24,#D97706);
+}
+.contact-btn:hover{transform:scale(1.10);}
+.whatsapp-btn:hover{transform:scale(1.10);}
+
+/* FOOTER */
+footer{
+  background:#ffffff;
+  color:#000000;
+  text-align:center;
+  padding:10px 10%;
+  border-top:2px solid #FBBF24;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .contact-wrapper{grid-template-columns:1fr}
+  header{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>ARS Financial Solutions</h1>
+  <nav>
+    <a href="index.html">Home</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <h2>Contact Us</h2>
+  <p>Let’s discuss how we can support your business growth</p>
+</section>
+
+<section class="contact-wrapper">
+
+  <div class="contact-info">
+    <h3>Get in Touch</h3>
+    <p><strong>Office:</strong><br>ARS Financial Solutions</p>
+    <p><strong>Email:</strong><br>team@arsfinancialsolutions.com</p>
+    <p><strong>Phone:</strong><br>+91 70 9282 5687</p>
+    <p><strong>Working Hours:</strong><br>Mon – Sat | 10:00 AM – 6:00 PM</p>
+  </div>
+
+  <div class="contact-form">
+    <h3>Send Us a Message</h3>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Submit Enquiry</button>
+    </form>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 ARS Financial Solutions. All rights reserved.
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/917092825687" target="_blank" class="contact-btn whatsapp-btn">
+  💬 WhatsApp
+</a>
+<a href="tel:+917092825687" class="contact-btn call-btn">
+  📞 Call Us
+</a>
+
+<script>
+/* 🔴 REPLACE THIS WITH YOUR GOOGLE SCRIPT URL */
+const scriptURL = "PASTE_YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE";
+
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const btn = this.querySelector("button");
+  btn.innerText = "Submitting...";
+  btn.disabled = true;
+
+  const data = {
+    name: this.name.value,
+    email: this.email.value,
+    phone: this.phone.value,
+    message: this.message.value
+  };
+
+  fetch(scriptURL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(() => {
+    alert("Thank you! Your enquiry has been submitted.");
+    this.reset();
+    btn.innerText = "Submit Enquiry";
+    btn.disabled = false;
+  })
+  .catch(err => {
+    alert("Submission failed. Please try again.");
+    btn.innerText = "Submit Enquiry";
+    btn.disabled = false;
+    console.error(err);
+  });
+});
+</script>
+
+</body>
+</html>
