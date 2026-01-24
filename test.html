@@ -133,4 +133,87 @@ textarea{
 /* MOBILE – VERTICAL */
 @media(max-width:900px){
 
-  h1{font-siz
+  h1{font-size:28px}
+  .subtitle{font-size:15px}
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:30px;
+  }
+
+  .container{
+    padding:30px 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Contact Us</h1>
+  <p class="subtitle">Get expert advice on Accounting, GST, Income Tax & Compliance</p>
+
+  <div class="grid">
+
+    <!-- CONTACT INFO -->
+    <div class="card info-card">
+      <span class="badge">Why Contact Us?</span>
+
+      <h3>ARS Financial Solutions</h3>
+      <p>
+        ✔ Experienced financial professionals<br>
+        ✔ Timely & compliant service delivery<br>
+        ✔ Transparent pricing<br>
+        ✔ Personalized business solutions
+      </p>
+
+      <h3>Contact Details</h3>
+      <p>
+        📞 <a href="tel:+917092825687">+91 70 9282 5687</a><br>
+        📧 <a href="mailto:team@arsfinancialsolutions.com">
+        team@arsfinancialsolutions.com</a>
+      </p>
+
+      <h3>Business Hours</h3>
+      <p>Monday – Saturday<br>10:00 AM – 6:00 PM</p>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <div class="card form-card">
+      <form action="https://script.google.com/macros/s/AKfycbwW5vEDF_UR0tj3_SFYFc5a6GIVSGFMNkFFcdze18nvaZ_NuuEMRWU6b0LcqfX4tblrNQ/exec" method="POST">
+
+        <label>Full Name</label>
+        <input type="text" name="Name" required>
+
+        <label>Email Address</label>
+        <input type="email" name="Email" required>
+
+        <label>Phone Number</label>
+        <input type="tel" name="Phone" required>
+
+        <label>Service Required</label>
+        <select name="Service">
+          <option>Accounting & Bookkeeping</option>
+          <option>GST Services</option>
+          <option>Income Tax</option>
+          <option>ROC Compliance</option>
+          <option>Audit Support</option>
+        </select>
+
+        <textarea name="Message" placeholder="Your Message"></textarea>
+        <button class="btn" type="submit">Request Consultation</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<a class="call-btn" href="tel:+917092825687">Call Now</a>
+<a class="whatsapp" href="https://wa.me/917092825687">WhatsApp</a>
+
+</body>
+</html>
