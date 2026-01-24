@@ -21,166 +21,181 @@
 }
 </script>
 <style>
-:root{
-  --primary:#0f4c81;
-  --accent:#f2a900;
-  --dark:#1f2933;
-  --muted:#64748b;
-  --bg:#f5f7fb;
-}
-
-*{box-sizing:border-box}
-
 body{
   margin:0;
   font-family:Poppins,Arial,sans-serif;
-  background:linear-gradient(135deg,#eef4ff,#f9fbff);
-  color:var(--dark);
+  background:#f4f6f9;
+  color:#1f2933
 }
 
-/* CONTAINER */
 .container{
   max-width:1200px;
   margin:auto;
-  padding:60px 20px;
+  padding:40px 20px
 }
 
-/* HEADER */
 h1{
-  font-size:40px;
-  color:var(--primary);
-  margin-bottom:12px;
-  letter-spacing:-.5px;
+  color:#0f4c81;
+  margin-bottom:8px;
+  font-size:34px
 }
 
 .subtitle{
-  font-size:18px;
-  color:var(--muted);
-  max-width:700px;
-  margin-bottom:50px;
+  color:#475569;
+  margin-bottom:35px;
+  font-size:16px
 }
 
-/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:45px;
+  grid-template-columns:1fr 1fr;
+  gap:40px
 }
 
-/* CARDS */
 .card{
-  background:rgba(255,255,255,.95);
-  padding:45px;
-  border-radius:22px;
-  box-shadow:
-    0 25px 50px rgba(15,76,129,.08),
-    inset 0 0 0 1px rgba(255,255,255,.6);
+  background:#fff;
+  padding:40px;
+  border-radius:18px;
+  box-shadow:0 15px 35px rgba(0,0,0,.08)
 }
 
-/* FORM */
 label{
   font-weight:600;
-  font-size:14px;
   margin-bottom:6px;
-  display:block;
+  display:block
 }
 
-input,select,textarea{
+input, textarea, select{
   width:100%;
-  padding:15px 16px;
-  border-radius:12px;
-  border:1px solid #dbe3ef;
-  font-size:15px;
-  margin-bottom:20px;
-  transition:.25s;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-  outline:none;
-  border-color:var(--primary);
-  box-shadow:0 0 0 4px rgba(15,76,129,.12);
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #cbd5e1;
+  margin-bottom:18px;
+  font-size:15px
 }
 
 textarea{
   resize:none;
-  height:120px;
+  height:120px
 }
 
-/* BUTTON */
 .btn{
-  background:linear-gradient(135deg,var(--accent),#ffd36a);
+  background:#f2a900;
   color:#000;
+  padding:15px 36px;
   border:none;
-  padding:16px;
-  width:100%;
-  border-radius:40px;
+  border-radius:30px;
   font-weight:700;
   font-size:16px;
   cursor:pointer;
-  box-shadow:0 10px 25px rgba(242,169,0,.35);
+  width:100%
 }
 
-/* INFO BOX */
-.badge{
-  display:inline-block;
-  background:rgba(15,76,129,.1);
-  color:var(--primary);
-  padding:8px 18px;
-  border-radius:40px;
-  font-weight:600;
-  margin-bottom:20px;
+.btn:hover{
+  opacity:.9
 }
 
 .info-box h3{
-  color:var(--primary);
-  margin:22px 0 10px;
+  color:#0f4c81;
+  margin-bottom:12px
 }
 
 .info-box p{
-  line-height:1.8;
-  font-size:15px;
+  line-height:1.7;
+  font-size:15px
 }
 
-/* CONTACT LINKS */
-.contact-link{
-  display:block;
-  font-weight:600;
-  margin:8px 0;
-  color:var(--primary);
-  text-decoration:none;
+.badge{
+  display:inline-block;
+  background:#e0f2fe;
+  color:#075985;
+  padding:8px 16px;
+  border-radius:30px;
+  margin-bottom:15px;
+  font-weight:600
 }
 
-/* FLOATING CTA */
-.whatsapp, .call-btn{
+/* Floating WhatsApp */
+.whatsapp{
   position:fixed;
+  bottom:20px;
   right:20px;
-  padding:14px 22px;
-  border-radius:50px;
+  background:#25D366;
   color:#fff;
+  padding:14px 20px;
+  border-radius:50px;
   text-decoration:none;
   font-weight:700;
-  z-index:999;
+  z-index:999
 }
 
-.whatsapp{
-  bottom:20px;
-  background:#25D366;
-}
-
+/* Floating Call Button (Mobile) */
 .call-btn{
+  position:fixed;
   bottom:80px;
-  background:var(--primary);
+  right:20px;
+  background:#0f4c81;
+  color:#fff;
+  padding:14px 22px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:700;
+  z-index:999
 }
 
-/* MOBILE */
+/* MOBILE VIEW */
 @media(max-width:900px){
-  h1{font-size:30px}
-  .subtitle{font-size:16px}
-  .grid{grid-template-columns:1fr}
-  .card{padding:30px}
+  h1{font-size:28px}
+ @media(max-width:900px){
+
+  h1{font-size:28px}
+  .subtitle{font-size:15px}
+
+  /* Horizontal cards on mobile */
+  .grid{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:10px;
+  }
+
+  .grid::-webkit-scrollbar{
+    height:6px;
+  }
+
+  .grid::-webkit-scrollbar-thumb{
+    background:#cbd5e1;
+    border-radius:10px;
+  }
+
+  .card{
+    min-width:85%;
+    flex:0 0 auto;
+    scroll-snap-align:start;
+    padding:26px;
+  }
+
+  .container{
+    padding:30px 14px;
+  }
 }
+
+  .card{padding:28px}
+  .container{padding:30px 16px}
+}
+
+@media(max-width:900px){
+  .grid::after{
+    content:"Swipe →";
+    position:absolute;
+    right:16px;
+    bottom:-8px;
+    font-size:12px;
+    color:#64748b;
+  }
+}
+
 </style>
 </head>
 
