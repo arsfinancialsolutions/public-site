@@ -208,16 +208,16 @@ textarea{
       <form action="https://script.google.com/macros/s/AKfycbwW5vEDF_UR0tj3_SFYFc5a6GIVSGFMNkFFcdze18nvaZ_NuuEMRWU6b0LcqfX4tblrNQ/exec" method="POST">
 
         <label>Full Name</label>
-        <input type="text" name="Name" required>
-
+        <input type="text" name="Name" placeholder="Name" required aria-label="Full Name">
         <label>Email Address</label>
-        <input type="email" name="Email" required>
+        <input type="email" name="Email" placeholder="example@gmail.com" required aria-label="Email Address">
 
         <label>Phone Number</label>
-        <input type="tel" name="Phone" required>
+        <input type="tel" name="Phone" pattern="[0-9]{10}" placeholder="10-digit number" required>
 
         <label>Service Required</label>
-        <select name="Service">
+        <select name="Service" required>
+          <option value="" disabled selected>Select Service</option>
           <option>Accounting & Bookkeeping</option>
           <option>GST Services</option>
           <option>Income Tax</option>
@@ -226,8 +226,9 @@ textarea{
           <option>Audit Support</option>
         </select>
 
+
         <textarea name="Message" placeholder="Your Requirement"></textarea>
-        <button class="btn" type="submit">Click for Consultation Request</button>
+        <button class="btn" type="submit">Request Consultation</button>
       </form>
     </div>
 
@@ -241,6 +242,38 @@ textarea{
 <!-- FLOATING ACTION BUTTONS -->
 <a class="call-btn" href="tel:+917092825687">Call Now</a>
 <a class="whatsapp" href="https://wa.me/917092825687">WhatsApp</a>
+
+<!-- JavaScript: place before closing body -->
+<script>
+const form = document.querySelector('.form-card form');
+
+
+form.addEventListener('submit', function(e){
+e.preventDefault();
+
+
+const submitBtn = form.querySelector('button[type="submit"]');
+submitBtn.disabled = true;
+submitBtn.textContent = 'Submitting...';
+
+
+fetch(form.action, {
+method: 'POST',
+body: new FormData(form)
+})
+.then(() => {
+alert('Thank you! Your request has been submitted.');
+form.reset();
+})
+.catch(() => {
+alert('Submission failed. Please try again.');
+})
+.finally(() => {
+submitBtn.disabled = false;
+submitBtn.textContent = 'Request Consultation';
+});
+});
+</script>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
