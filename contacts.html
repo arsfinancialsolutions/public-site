@@ -202,9 +202,8 @@ footer{
 </a>
 
 
-
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbz-_GqDwnQu3rKXr48H8-7xO9JR0xg1JPz_NaSpWENVeKfXzaHm9uKlDsS07tdE1m0R/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbyJ7nkNnSomM5co7e3veKndbEmDVE6vRxUgWHe-xSuOwzrFY92sn8mbVuCfewxVluXw/exec";
 
 document.getElementById("contactForm").addEventListener("submit", function(e){
   e.preventDefault();
@@ -213,13 +212,10 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
   btn.innerText = "Submitting...";
   btn.disabled = true;
 
-  fetch(scriptURL, {
-    method: "POST",
-    body: new FormData(this)
-  })
+  fetch(scriptURL, { method: "POST", body: new FormData(this) })
   .then(res => res.text())
   .then(() => {
-    alert("Thank you! Your enquiry has been submitted.");
+    alert("Thank you! Your enquiry has been submitted."); // You can later replace this with inline message
     this.reset();
   })
   .catch(err => {
@@ -231,11 +227,13 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     btn.disabled = false;
   });
 });
+
 </script>
 
 
 
 </body>
 </html>
+
 
 
