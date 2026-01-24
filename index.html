@@ -3,260 +3,232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARS FINANCIAL SOLUTIONS</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-/* Reset */
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:#fff;color:#111;line-height:1.6;}
-a{text-decoration:none;color:inherit;}
-img{max-width:100%;display:block;}
+<title>ARS Financial Solutions</title>
 
-/* Header */
+<style>
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  background:#fff;
+  color:#111;
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+
+/* HEADER */
 header{
   position:fixed;top:0;left:0;width:100%;z-index:1000;
   display:flex;justify-content:space-between;align-items:center;
-  padding:15px 10%;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);transition:0.3s;
+  padding:10px 10%;background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(10px);transition:0.3s;
 }
 header.scrolled{box-shadow:0 5px 15px rgba(0,0,0,0.1);}
-header h1{font-family:'Roboto',sans-serif;font-size:26px;color:#111;}
-nav a{margin-left:25px;color:#111;font-weight:600;transition:0.3s;}
-nav a:hover{color:#FBBF24;}
+header h1{font-family:'Roboto',sans-serif;font-size:26px;}
+nav a{margin-left:10px;font-weight:600;}
+nav a:hover{color:#D97706}
 
-/* Hero */
+/* HERO */
 .hero{
-  height:90vh;background:url('https://images.unsplash.com/photo-1581092795365-6b3a39e9940b?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#111;
-  position:relative;overflow:hidden;
+  height:90vh;
+  background:linear-gradient(90deg,#ffffff,#ffffff) center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  position:relative;
 }
 .hero::before{
-  content:'';position:absolute;top:0;left:0;width:100%;height:100%;
-  background:rgba(255,255,255,0.6);z-index:0;
+  content:'';position:absolute;inset:0;background:rgba(255,255,255,0.6);
 }
-.hero-content{position:relative;z-index:1;animation:fadeInUp 1s ease forwards;opacity:0;}
-.hero h2 {
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 1.2;
-  background: linear-gradient(90deg, #FBBF24, #D97706);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text; /* for Firefox */
-  color: transparent;     /* fallback */
-  display: inline-block;  /* ensures gradient applies properly */
-  margin-bottom: 20px;
+.hero-content{position:relative;max-width:800px;animation:fadeInUp 1s ease forwards;}
+.hero h2{
+  font-size:56px;font-weight:700;line-height:1.2;
+  background:linear-gradient(90deg,#FBBF24,#D97706);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;color:transparent;
+  margin-bottom:20px;
 }
+.hero p{font-size:20px;margin-bottom:30px;}
+.hero-btn{
+  padding:15px 40px;border-radius:50px;font-weight:700;
+  background:linear-gradient(90deg,#FBBF24,#D97706);
+  color:#111;display:inline-block;transition:0.3s;
+}
+.hero-btn:hover{background:#111;color:#FBBF24;transform:scale(1.05);}
 
-.hero p{font-size:20px;margin-bottom:30px;color:#111;}
-.hero button{
-  padding:15px 40px;font-weight:700;font-size:16px;border:none;border-radius:50px;
-  background:linear-gradient(90deg,#FBBF24,#D97706);color:#111;cursor:pointer;transition:0.3s;
-}
-.hero button:hover{transform:scale(1.05);background:#111;color:#FBBF24;}
-
-/* Sections */
+/* SECTIONS */
 section{padding:100px 10%;opacity:0;transform:translateY(50px);transition:1s;}
 section.visible{opacity:1;transform:translateY(0);}
-section h2{text-align:center;font-size:42px;color:#111;margin-bottom:50px;}
+section h2{text-align:center;font-size:42px;margin-bottom:50px;}
 
-/* Services */
+/* SERVICES */
 .services-grid{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;}
-.card{background:#fff;border-radius:15px;padding:30px;flex:1 1 300px;box-shadow:0 10px 25px rgba(0,0,0,0.05);transition:transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.card{
+  background:#fff;border-radius:15px;padding:30px;
+  flex:1 1 300px;text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  transition:0.3s;
+}
 .card:hover{transform:translateY(-10px);box-shadow:0 20px 30px rgba(0,0,0,0.1);}
-.card i{font-size:40px;color:#FBBF24;margin-bottom:15px;}
-.card h3{margin-bottom:15px;color:#111;}
-.card p{font-size:16px;color:#555;}
+.card i{font-size:40px;color:#FBBF24;margin-bottom:15px;display:block;}
+.card h3{margin-bottom:15px;}
+.card p{color:#555}
 
-/* Testimonials */
-.testimonials{background:#111;color:#fff;padding:80px 10%;border-radius:20px;}
-.testimonials h2{color:#FBBF24;margin-bottom:50px;}
-.testimonial-slide{display:flex;overflow-x:auto;gap:20px;scroll-behavior:smooth;}
-.testimonial{min-width:300px;background:#8d8d8d;padding:30px;border-radius:15px;flex-shrink:0;box-shadow:0 10px 25px rgba(0,0,0,0.2);}
-.testimonial p{font-style:italic;margin-bottom:15px;}
-.testimonial h4{font-weight:700;color:#FBBF24;}
+/* TESTIMONIALS */
 
-/* Pricing */
+
+/* PRICING */
 .pricing-grid{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;}
-.price-card{background:#fff;border-radius:15px;padding:40px;text-align:center;flex:1 1 300px;box-shadow:0 10px 25px rgba(0,0,0,0.05);transition:transform 0.3s,box-shadow 0.3s;}
-.price-card:hover{transform:translateY(-10px);box-shadow:0 20px 30px rgba(0,0,0,0.1);}
-.price-card h3{margin-bottom:15px;color:#111;}
-.price-card h2{margin-bottom:20px;font-size:32px;color:#FBBF24;}
-.price-card ul{list-style:none;margin-bottom:20px;}
+.price-card{
+  background:#fff;border-radius:15px;padding:40px;
+  text-align:center;flex:1 1 300px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  transition:0.3s;
+}
+.price-card:hover{transform:translateY(-10px);}
+.price-card h2{color:#FBBF24;margin:20px 0;}
+.price-card ul{list-style:none;margin-bottom:25px;}
 .price-card ul li{margin:10px 0;color:#555;}
-.price-card button{padding:12px 30px;background:linear-gradient(90deg,#FBBF24,#D97706);border:none;border-radius:50px;color:#111;font-weight:700;cursor:pointer;transition:0.3s;}
-.price-card button:hover{transform:scale(1.05);background:#111;color:#FBBF24;}
+.price-card a{
+  display:inline-block;padding:12px 30px;border-radius:50px;
+  background:linear-gradient(90deg,#FBBF24,#D97706);
+  font-weight:700;transition:0.3s;
+}
+.price-card a:hover{background:#111;color:#FBBF24}
 
-/* Contact */
-form{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:15px;}
-input,textarea{padding:15px;border-radius:8px;border:1px solid #ccc;font-size:16px;}
-button.submit-btn{padding:15px;background:linear-gradient(90deg,#FBBF24,#D97706);color:#111;font-weight:700;border:none;border-radius:50px;cursor:pointer;transition:0.3s;}
-button.submit-btn:hover{background:#111;color:#FBBF24;}
-
-/* Footer */
-footer{background:#111;color:#fff;text-align:center;padding:25px 10%;font-size:14px;border-top:5px solid #FBBF24;}
-
-/* WhatsApp & Call Buttons */
-/* Contact Buttons */
-.contact-btn {
-  position: fixed;
-  bottom: 50px;
-  padding: 12px 20px;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #111;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  transition: 0.3s;
-  z-index: 999;
+/* FOOTER */
+footer{
+  background:#ffffff;
+  color:#000000;
+  text-align:center;
+  padding:10px 10%;
+  border-top:2px solid #FBBF24;
 }
 
-.whatsapp-btn {
-  right: 25px;
-  background: linear-gradient(90deg,#FBBF24,#D97706);
+/* FLOATING BUTTONS */
+.contact-btn{
+  position:fixed;
+  bottom:50px;
+  padding:12px 20px;
+  border-radius:50px;
+  font-weight:600;
+  display:flex;
+  gap:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  z-index:999;
+  transition:0.3s;
+}
+.whatsapp-btn{
+  right:25px;
+  background:linear-gradient(90deg,#FBBF24,#D97706);
+}
+.call-btn{
+  left:25px;
+  background:linear-gradient(90deg,#FBBF24,#D97706);
+}
+.contact-btn:hover{transform:scale(1.10);}
+.whatsapp-btn:hover{transform:scale(1.10);}
+
+/* ANIMATION */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(50px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
-.whatsapp-btn:hover {
-  transform: scale(1.05);
-  background: #111;
-  color: #FBBF24;
+/* RESPONSIVE */
+@media(max-width:768px){
+  header{flex-direction:column;gap:10px;}
+  .hero h2{font-size:38px;}
 }
-
-.call-btn {
-  left: 25px;
-  background: linear-gradient(90deg,#FBBF24,#D97706);
-}
-
-.call-btn:hover {
-  transform: scale(1.05);
-  background: #111;
-  color: #FBBF24;
-}
-
-
-/* Animations */
-@keyframes fadeInUp{0%{opacity:0;transform:translateY(50px);}100%{opacity:1;transform:translateY(0);}}
-@media(max-width:768px){header{flex-direction:column;text-align:center;gap:10px;}.services-grid,.pricing-grid,.testimonial-slide{flex-direction:column;align-items:center;}.hero h2{font-size:38px;}}
 </style>
 </head>
+
 <body>
 
 <header>
-  <h1>ARS FINANCIAL SOLUTIONS</h1>
+  <h1>ARS Financial Solutions</h1>
   <nav>
     <a href="#home">Home</a>
     <a href="#services">Services</a>
-    <a href="#testimonials">Testimonials</a>
     <a href="#pricing">Pricing</a>
-    <a href="contact.html">Contact</a>
+    <a href="contacts.html">Contact</a>
   </nav>
 </header>
 
-<!-- Hero -->
 <section class="hero" id="home">
   <div class="hero-content">
     <h2>Premium Financial Solutions</h2>
-    <p>Expert advisory, taxation, and compliance services to accelerate your business growth.</p>
-    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    <p>Expert advisory, taxation, and compliance services for growing businesses.</p>
+    <a href="contacts.html" class="hero-btn">Get Started</a>
   </div>
 </section>
 
-<!-- Services -->
 <section id="services">
   <h2>Our Services</h2>
   <div class="services-grid">
-    <div class="card"><i>💼</i><h3>Financial Advisory</h3><p>Strategic guidance to grow and protect your wealth.</p></div>
-    <div class="card"><i>🧾</i><h3>Taxation Services</h3><p>Planning, compliance, and optimization for individuals and businesses.</p></div>
-    <div class="card"><i>📊</i><h3>Compliance & Audit</h3><p>Ensuring your business meets all regulatory requirements efficiently.</p></div>
+    <div class="card"><i>1</i><h3>Financial Advisory</h3><p>Strategic guidance to grow and protect your business.</p></div>
+    <div class="card"><i>2</i><h3>Taxation</h3><p>Efficient planning, filing, and optimization.</p></div>
+    <div class="card"><i>3</i><h3>ROC</h3><p>End-to-end regulatory and audit support.</p></div>
+    <div class="card"><i>4</i><h3>Registration</h3><p>End-to-end regulatory and audit support.</p></div>
+    <div class="card"><i>5</i><h3>Compliance</h3><p>End-to-end regulatory and audit support.</p></div>
+    <div class="card"><i>6</i><h3>IPO Advisory</h3><p>End-to-end regulatory and audit support.</p></div>
   </div>
 </section>
 
-<!-- Testimonials -->
-<section class="testimonials" id="testimonials">
-  <h2>What Our Clients Say</h2>
-  <div class="testimonial-slide">
-    <div class="testimonial"><p>"ARS Financial Solutions transformed our financial planning and compliance processes. Highly recommend!"</p><h4>R. Sharma, CEO</h4></div>
-    <div class="testimonial"><p>"Professional, reliable, and very responsive. Their advisory services are top-notch."</p><h4>S. Kapoor, Entrepreneur</h4></div>
-    <div class="testimonial"><p>"They helped streamline our taxation and compliance, saving us time and money."</p><h4>A. Mehta, CFO</h4></div>
-  </div>
-</section>
-
-<!-- Pricing -->
 <section id="pricing">
   <h2>Pricing Plans</h2>
   <div class="pricing-grid">
     <div class="price-card">
-      <h3>Basic</h3>
-      <h2>$199</h2>
-      <ul>
-        <li>Financial Consulting</li>
-        <li>Tax Filing Assistance</li>
-        <li>Email Support</li>
-      </ul>
-      <button>Choose Plan</button>
+      <h3>Basic</h3><h2>₹0</h2>
+      <ul><li>Advisory</li><li>Tax Filing</li><li>Email Support</li></ul>
+      <a href="contacts.html">Enquire</a>
     </div>
     <div class="price-card">
-      <h3>Standard</h3>
-      <h2>$399</h2>
-      <ul>
-        <li>All Basic Features</li>
-        <li>Compliance Audit</li>
-        <li>Phone & Email Support</li>
-      </ul>
-      <button>Choose Plan</button>
+      <h3>Standard</h3><h2>₹0</h2>
+      <ul><li>Compliance</li><li>Audit Support</li><li>Phone Support</li></ul>
+      <a href="contacts.html">Enquire</a>
     </div>
     <div class="price-card">
-      <h3>Premium</h3>
-      <h2>$699</h2>
-      <ul>
-        <li>All Standard Features</li>
-        <li>Dedicated Advisor</li>
-        <li>Priority Support</li>
-      </ul>
-      <button>Choose Plan</button>
+      <h3>Premium</h3><h2>₹0</h2>
+      <ul><li>Dedicated Advisor</li><li>Priority Support</li><li>IPO Advisory</li></ul>
+      <a href="contacts.html">Enquire</a>
     </div>
   </div>
 </section>
 
-<!-- Contact -->
-<section id="contact">
-  <h2>Contact Us</h2>
-  <form id="contactForm">
-    <input type="text" placeholder="Full Name" name="name" required>
-    <input type="email" placeholder="Email Address" name="email" required>
-    <input type="tel" placeholder="Phone Number" name="phone" required>
-    <textarea placeholder="Your Message" name="message" rows="5" required></textarea>
-    <button type="submit" class="submit-btn">Send Message</button>
-  </form>
-</section>
+<footer>
+  © 2026 ARS Financial Solutions. All rights reserved.
+</footer>
 
-<footer>&copy; 2026 ARS Financial Solutions. All rights reserved.</footer>
-
-<!-- WhatsApp & Call Buttons -->
-<a href="https://wa.me/917092825687" target="_blank" class="contact-btn whatsapp-btn">
-  💬 whatsapp
-</a>
-<a href="tel:+917092825687" class="contact-btn call-btn">
-  📞 call us
-</a>
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/917092825687" class="contact-btn whatsapp-btn">💬 WhatsApp</a>
+<a href="tel:+917092825687" class="contact-btn call-btn">📞 Call Us</a>
 
 <script>
 // Sticky header
-window.addEventListener('scroll',()=>{document.querySelector('header').classList.toggle('scrolled',window.scrollY>50);});
+window.addEventListener('scroll',()=>{
+  document.querySelector('header')
+    .classList.toggle('scrolled',window.scrollY>50);
+});
 
-// Smooth scroll for nav
-document.querySelectorAll('nav a').forEach(anchor=>{anchor.addEventListener('click',function(e){e.preventDefault();document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});});});
+// Smooth scroll only for internal links
+document.querySelectorAll('nav a').forEach(link=>{
+  const href=link.getAttribute('href');
+  if(href.startsWith('#')){
+    link.addEventListener('click',e=>{
+      e.preventDefault();
+      document.querySelector(href)
+        .scrollIntoView({behavior:'smooth'});
+    });
+  }
+});
 
-// Section fade-in
-const sections=document.querySelectorAll('section');
-const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');}})},{threshold:0.2});
-sections.forEach(section=>observer.observe(section));
-
-// Contact form dummy
-document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();alert('Thank you! Your message has been sent.');this.reset();});
+// Fade-in sections
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting)entry.target.classList.add('visible');
+  });
+},{threshold:0.2});
+document.querySelectorAll('section').forEach(sec=>observer.observe(sec));
 </script>
+
 </body>
 </html>
