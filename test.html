@@ -109,9 +109,10 @@ textarea{
 }
 
 /* FLOATING BUTTONS */
-.call-btn,.whatsapp{
+.call-btn,
+.whatsapp{
   position:fixed;
-  right:20px;
+  bottom:20px;
   padding:14px 22px;
   border-radius:50px;
   color:#fff;
@@ -120,14 +121,26 @@ textarea{
   z-index:999;
 }
 
+/* Call – bottom LEFT */
 .call-btn{
-  bottom:80px;
+  left:20px;
   background:var(--primary);
 }
 
+/* WhatsApp – bottom RIGHT */
 .whatsapp{
-  bottom:20px;
+  right:20px;
   background:#25D366;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:20px 10px;
+  font-size:14px;
+  color:#64748b;
+  background:#f4f6f9;
+  border-top:1px solid #e2e8f0;
 }
 
 /* MOBILE – VERTICAL */
@@ -212,8 +225,17 @@ textarea{
   </div>
 </div>
 
+<footer class="footer">
+  © <span id="year"></span> ARS Financial Solutions. All Rights Reserved.
+</footer>
+
+<!-- FLOATING ACTION BUTTONS -->
 <a class="call-btn" href="tel:+917092825687">Call Now</a>
 <a class="whatsapp" href="https://wa.me/917092825687">WhatsApp</a>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
