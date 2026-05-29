@@ -400,13 +400,16 @@
         .breakdown-table {
             width: 100%;
             margin-top: 20px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
         }
 
         .breakdown-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
-            padding: 15px;
+            padding: 14px 0;
             border-bottom: 1px solid var(--border);
             align-items: center;
         }
@@ -415,29 +418,51 @@
             border-bottom: none;
         }
 
+        .breakdown-row.header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-bottom: none;
+        }
+
         .breakdown-row.total {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(236, 72, 153, 0.15));
             border-radius: 10px;
             font-weight: 600;
             border: 2px solid var(--primary);
-            padding: 20px;
-            margin-top: 10px;
+            padding: 18px;
+            margin-top: 15px;
+            border-bottom: none;
         }
 
         .breakdown-label {
             color: var(--text-light);
-            font-size: 14px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .breakdown-row.header .breakdown-label,
+        .breakdown-row.total .breakdown-label {
+            color: inherit;
+            font-weight: 600;
         }
 
         .breakdown-value {
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 17px;
+            font-weight: 700;
             color: var(--primary);
             text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .breakdown-row.header .breakdown-value {
+            color: white;
         }
 
         .breakdown-row.total .breakdown-value {
-            font-size: 20px;
+            font-size: 24px;
             color: var(--text-dark);
         }
 
@@ -513,19 +538,33 @@
         }
 
         .chart-container {
-            background: var(--bg-lighter);
-            border-radius: 12px;
-            padding: 20px;
+            background: linear-gradient(135deg, var(--bg-lighter), var(--bg-light));
+            border-radius: 16px;
+            padding: 25px;
             position: relative;
-            height: 300px;
+            min-height: 380px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
         }
 
         .chart-title {
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .chart-canvas-wrapper {
+            position: relative;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Animated Numbers */
@@ -773,36 +812,43 @@
 
                 <!-- Breakdown Table -->
                 <div class="breakdown-table">
+                    <div class="breakdown-row header">
+                        <span class="breakdown-label">Income Component</span>
+                        <span class="breakdown-value">Amount</span>
+                    </div>
                     <div class="breakdown-row">
-                        <span class="breakdown-label">Gross Income</span>
+                        <span class="breakdown-label">📊 Gross Income</span>
                         <span class="breakdown-value animated-number" id="resultGrossIncome">₹0</span>
                     </div>
                     <div class="breakdown-row" id="deductionsRow">
-                        <span class="breakdown-label">Total Deductions</span>
+                        <span class="breakdown-label">➖ Total Deductions</span>
                         <span class="breakdown-value animated-number" id="resultDeductions">₹0</span>
                     </div>
                     <div class="breakdown-row">
-                        <span class="breakdown-label">Taxable Income</span>
+                        <span class="breakdown-label">📈 Taxable Income</span>
                         <span class="breakdown-value animated-number" id="resultTaxableIncome">₹0</span>
                     </div>
+
+                    <div style="height: 2px; background: linear-gradient(90deg, var(--border), transparent); margin: 10px 0;"></div>
+
                     <div class="breakdown-row">
-                        <span class="breakdown-label">Tax Before Rebate</span>
+                        <span class="breakdown-label">💰 Tax Before Rebate</span>
                         <span class="breakdown-value animated-number" id="resultTaxBeforeRebate">₹0</span>
                     </div>
                     <div class="breakdown-row" id="rebateRow" style="display: none;">
-                        <span class="breakdown-label">Rebate u/s 87A <span class="tooltip-icon">?<span class="tooltip-text">Complete tax rebate on income up to ₹7L (New Regime only)</span></span></span>
-                        <span class="breakdown-value animated-number" id="resultRebate">₹0</span>
+                        <span class="breakdown-label">✅ Rebate u/s 87A <span class="tooltip-icon">?<span class="tooltip-text">Complete tax rebate on income up to ₹7L (New Regime only)</span></span></span>
+                        <span class="breakdown-value animated-number" id="resultRebate" style="color: var(--success);">₹0</span>
                     </div>
                     <div class="breakdown-row">
-                        <span class="breakdown-label">Health & Education Cess (4%)</span>
+                        <span class="breakdown-label">⚕️ Health & Education Cess (4%)</span>
                         <span class="breakdown-value animated-number" id="resultCess">₹0</span>
                     </div>
                     <div class="breakdown-row total">
-                        <span class="breakdown-label">Total Tax Liability</span>
+                        <span class="breakdown-label">🎯 Total Tax Liability</span>
                         <span class="breakdown-value animated-number" id="resultTotalTax">₹0</span>
                     </div>
-                    <div class="breakdown-row" style="background: none; border: none; padding-top: 20px;">
-                        <span class="breakdown-label">Effective Tax Rate</span>
+                    <div class="breakdown-row" style="background: none; border: none; padding-top: 15px; margin-top: 10px; border-top: 2px solid var(--border);">
+                        <span class="breakdown-label">📊 Effective Tax Rate</span>
                         <span class="breakdown-value animated-number" id="resultEffectiveRate">0%</span>
                     </div>
                 </div>
@@ -822,15 +868,54 @@
 
         <!-- Charts Row -->
         <div class="card" style="margin-top: 30px;">
-            <div class="card-title">Tax Analysis</div>
+            <div class="card-title">📊 Tax Analysis & Insights</div>
+            
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px;">
+                <div style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.05)); padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary);">
+                    <div style="font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 600;">💼 Gross Income</div>
+                    <div style="font-size: 24px; font-weight: 700; color: var(--primary);" class="animated-number" id="insightGross">₹0</div>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); padding: 20px; border-radius: 12px; border-left: 4px solid var(--success);">
+                    <div style="font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 600;">📈 Taxable Income</div>
+                    <div style="font-size: 24px; font-weight: 700; color: var(--success);" class="animated-number" id="insightTaxable">₹0</div>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05)); padding: 20px; border-radius: 12px; border-left: 4px solid var(--danger);">
+                    <div style="font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 600;">💳 Total Tax</div>
+                    <div style="font-size: 24px; font-weight: 700; color: var(--danger);" class="animated-number" id="insightTax">₹0</div>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05)); padding: 20px; border-radius: 12px; border-left: 4px solid var(--warning);">
+                    <div style="font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 600;">📊 Eff. Rate</div>
+                    <div style="font-size: 24px; font-weight: 700; color: var(--warning);" class="animated-number" id="insightRate">0%</div>
+                </div>
+            </div>
+
             <div class="charts-grid">
                 <div class="chart-container">
-                    <div class="chart-title">Tax Distribution by Slab</div>
-                    <canvas id="slabChart"></canvas>
+                    <div class="chart-title">💹 Tax Distribution by Slab</div>
+                    <div class="chart-canvas-wrapper">
+                        <canvas id="slabChart"></canvas>
+                    </div>
                 </div>
                 <div class="chart-container">
-                    <div class="chart-title">Income vs Tax Comparison</div>
-                    <canvas id="comparisonChart"></canvas>
+                    <div class="chart-title">📊 Income vs Tax Comparison</div>
+                    <div class="chart-canvas-wrapper">
+                        <canvas id="comparisonChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="charts-grid" style="margin-top: 25px;">
+                <div class="chart-container">
+                    <div class="chart-title">💰 Deduction Breakdown</div>
+                    <div class="chart-canvas-wrapper">
+                        <canvas id="deductionChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-title">🎯 Tax Component Composition</div>
+                    <div class="chart-canvas-wrapper">
+                        <canvas id="componentChart"></canvas>
+                    </div>
                 </div>
             </div>
             <div class="btn-group" style="margin-top: 30px;">
@@ -1019,7 +1104,7 @@
             // Update slab details
             updateSlabDetails(result.slabs);
 
-            // Update charts
+            // Update charts and insight cards
             updateCharts(result, state.grossIncome, taxableIncome);
         };
 
@@ -1045,31 +1130,53 @@
             container.innerHTML = html;
         };
 
-        let slabChart, comparisonChart;
+        let slabChart, comparisonChart, deductionChart, componentChart;
 
         const updateCharts = (result, grossIncome, taxableIncome) => {
             // Destroy existing charts
             if (slabChart) slabChart.destroy();
             if (comparisonChart) comparisonChart.destroy();
+            if (deductionChart) deductionChart.destroy();
+            if (componentChart) componentChart.destroy();
 
-            // Slab Chart
+            const chartTextColor = state.theme === 'dark' ? '#f1f5f9' : '#1f2937';
+            const chartBgColor = state.theme === 'dark' ? '#0f172a' : '#ffffff';
+            const chartGridColor = state.theme === 'dark' ? '#334155' : '#e5e7eb';
+
+            // Update insight cards
+            const effectiveRate = grossIncome > 0 ? ((result.totalTax / grossIncome) * 100) : 0;
+            document.getElementById('insightGross').textContent = formatCurrency(grossIncome);
+            document.getElementById('insightTaxable').textContent = formatCurrency(taxableIncome);
+            document.getElementById('insightTax').textContent = formatCurrency(result.totalTax);
+            document.getElementById('insightRate').textContent = effectiveRate.toFixed(2) + '%';
+
+            // Chart 1: Slab Distribution Pie Chart
             const slabCtx = document.getElementById('slabChart').getContext('2d');
+            const slabLabels = result.slabs.map(s => {
+                const percentage = result.slabs.reduce((a, b) => a + b.tax, 0) > 0 
+                    ? ((s.tax / result.slabs.reduce((a, b) => a + b.tax, 0)) * 100).toFixed(1)
+                    : 0;
+                return `${s.range}\n₹${(s.tax / 100000).toFixed(2)}L (${percentage}%)`;
+            });
+
             slabChart = new Chart(slabCtx, {
                 type: 'doughnut',
                 data: {
-                    labels: result.slabs.map(s => s.range),
+                    labels: slabLabels,
                     datasets: [{
                         data: result.slabs.map(s => s.tax),
                         backgroundColor: [
-                            'rgba(99, 102, 241, 0.8)',
-                            'rgba(236, 72, 153, 0.8)',
-                            'rgba(59, 130, 246, 0.8)',
-                            'rgba(16, 185, 129, 0.8)',
-                            'rgba(245, 158, 11, 0.8)',
-                            'rgba(239, 68, 68, 0.8)'
+                            'rgba(99, 102, 241, 0.85)',
+                            'rgba(236, 72, 153, 0.85)',
+                            'rgba(59, 130, 246, 0.85)',
+                            'rgba(16, 185, 129, 0.85)',
+                            'rgba(245, 158, 11, 0.85)',
+                            'rgba(239, 68, 68, 0.85)'
                         ],
-                        borderColor: 'var(--bg-lighter)',
-                        borderWidth: 2
+                        borderColor: chartBgColor,
+                        borderWidth: 3,
+                        hoverBorderWidth: 4,
+                        hoverOffset: 8
                     }]
                 },
                 options: {
@@ -1079,49 +1186,217 @@
                         legend: {
                             position: 'bottom',
                             labels: {
-                                color: 'var(--text-dark)',
-                                font: { size: 12, weight: '500' },
-                                padding: 15
+                                color: chartTextColor,
+                                font: { size: 12, weight: '600' },
+                                padding: 15,
+                                usePointStyle: true
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            padding: 12,
+                            titleFont: { size: 13, weight: 'bold' },
+                            bodyFont: { size: 12 },
+                            borderColor: 'rgba(255, 255, 255, 0.2)',
+                            borderWidth: 1,
+                            displayColors: true,
+                            callbacks: {
+                                label: function(context) {
+                                    return '₹' + formatNumber(context.parsed) + ' (' + context.label.split('\n')[0] + ')';
+                                }
                             }
                         }
                     }
                 }
             });
 
-            // Comparison Chart
+            // Chart 2: Income vs Tax Comparison Bar Chart
             const comparisonCtx = document.getElementById('comparisonChart').getContext('2d');
             comparisonChart = new Chart(comparisonCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['Gross Income', 'Taxable Income', 'Tax Liability'],
+                    labels: ['Gross\nIncome', 'Total\nDeductions', 'Taxable\nIncome', 'Tax\nLiability'],
                     datasets: [{
                         label: 'Amount (₹)',
-                        data: [grossIncome, taxableIncome, result.totalTax],
+                        data: [grossIncome, grossIncome - taxableIncome, taxableIncome, result.totalTax],
                         backgroundColor: [
                             'rgba(99, 102, 241, 0.8)',
+                            'rgba(239, 68, 68, 0.8)',
                             'rgba(16, 185, 129, 0.8)',
-                            'rgba(239, 68, 68, 0.8)'
+                            'rgba(245, 158, 11, 0.8)'
                         ],
                         borderRadius: 8,
-                        borderSkipped: false
+                        borderSkipped: false,
+                        hoverBackgroundColor: [
+                            'rgba(99, 102, 241, 1)',
+                            'rgba(239, 68, 68, 1)',
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(245, 158, 11, 1)'
+                        ]
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            padding: 12,
+                            titleFont: { size: 13, weight: 'bold' },
+                            bodyFont: { size: 12 },
+                            borderColor: 'rgba(255, 255, 255, 0.2)',
+                            borderWidth: 1,
+                            callbacks: {
+                                label: function(context) {
+                                    return '₹' + formatNumber(context.parsed.x);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: { color: chartTextColor, font: { size: 12, weight: '600' } },
+                            grid: { color: chartGridColor },
+                            title: { display: true, text: 'Amount (₹)', color: chartTextColor }
+                        },
+                        y: {
+                            ticks: { color: chartTextColor, font: { size: 12, weight: '600' } }
+                        }
+                    }
+                }
+            });
+
+            // Chart 3: Deduction Breakdown
+            const totalDed = taxCalculations.getStandardDeduction() +
+                (state.regime === 'old' ? (state.deduction80C + state.deduction80D + state.hra) : 0);
+
+            const deductionData = {
+                labels: [],
+                values: []
+            };
+
+            deductionData.labels.push(`Std. Deduction (₹${(taxCalculations.getStandardDeduction() / 100000).toFixed(1)}L)`);
+            deductionData.values.push(taxCalculations.getStandardDeduction());
+
+            if (state.regime === 'old') {
+                if (state.deduction80C > 0) {
+                    deductionData.labels.push(`80C (₹${(state.deduction80C / 100000).toFixed(1)}L)`);
+                    deductionData.values.push(state.deduction80C);
+                }
+                if (state.deduction80D > 0) {
+                    deductionData.labels.push(`80D (₹${(state.deduction80D / 100000).toFixed(1)}L)`);
+                    deductionData.values.push(state.deduction80D);
+                }
+                if (state.hra > 0) {
+                    deductionData.labels.push(`HRA (₹${(state.hra / 100000).toFixed(1)}L)`);
+                    deductionData.values.push(state.hra);
+                }
+            }
+
+            const deductionCtx = document.getElementById('deductionChart').getContext('2d');
+            deductionChart = new Chart(deductionCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: deductionData.labels,
+                    datasets: [{
+                        data: deductionData.values,
+                        backgroundColor: [
+                            'rgba(99, 102, 241, 0.8)',
+                            'rgba(59, 130, 246, 0.8)',
+                            'rgba(16, 185, 129, 0.8)',
+                            'rgba(245, 158, 11, 0.8)'
+                        ],
+                        borderColor: chartBgColor,
+                        borderWidth: 3,
+                        hoverBorderWidth: 4,
+                        hoverOffset: 8
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: chartTextColor,
+                                font: { size: 11, weight: '600' },
+                                padding: 12,
+                                usePointStyle: true
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            padding: 12,
+                            titleFont: { size: 13, weight: 'bold' },
+                            bodyFont: { size: 12 },
+                            borderColor: 'rgba(255, 255, 255, 0.2)',
+                            borderWidth: 1,
+                            callbacks: {
+                                label: function(context) {
+                                    return '₹' + formatNumber(context.parsed);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Chart 4: Tax Component Composition
+            const componentCtx = document.getElementById('componentChart').getContext('2d');
+            const componentData = [
+                { label: 'Tax', value: result.tax, color: 'rgba(239, 68, 68, 0.85)' },
+                { label: 'Cess (4%)', value: result.cess, color: 'rgba(245, 158, 11, 0.85)' },
+                { label: 'Rebate Applied', value: result.rebate, color: 'rgba(16, 185, 129, 0.85)' }
+            ].filter(item => item.value > 0 || item.label !== 'Rebate Applied');
+
+            componentChart = new Chart(componentCtx, {
+                type: 'bar',
+                data: {
+                    labels: componentData.map(item => item.label),
+                    datasets: [{
+                        label: 'Amount (₹)',
+                        data: componentData.map(item => item.value),
+                        backgroundColor: componentData.map(item => item.color),
+                        borderRadius: 8,
+                        borderSkipped: false,
+                        hoverBackgroundColor: componentData.map(item => item.color.replace('0.85', '1'))
+                    }]
+                },
+                options: {
                     indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
                     plugins: {
                         legend: {
                             display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            padding: 12,
+                            titleFont: { size: 13, weight: 'bold' },
+                            bodyFont: { size: 12 },
+                            borderColor: 'rgba(255, 255, 255, 0.2)',
+                            borderWidth: 1,
+                            callbacks: {
+                                label: function(context) {
+                                    return '₹' + formatNumber(context.parsed.x);
+                                }
+                            }
                         }
                     },
                     scales: {
                         x: {
-                            ticks: { color: 'var(--text-dark)' },
-                            grid: { color: 'var(--border)' }
+                            ticks: { color: chartTextColor, font: { size: 12, weight: '600' } },
+                            grid: { color: chartGridColor },
+                            title: { display: true, text: 'Amount (₹)', color: chartTextColor }
                         },
                         y: {
-                            ticks: { color: 'var(--text-dark)' }
+                            ticks: { color: chartTextColor, font: { size: 12, weight: '600' } }
                         }
                     }
                 }
