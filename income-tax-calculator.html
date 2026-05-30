@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Income Tax Calculator FY 2025-2026 | India</title>
+    <title>ARS FINANCIAL SOLUTIONS INCOME TAX CALCULATOR</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -103,6 +103,63 @@
             display: flex;
             gap: 15px;
             align-items: center;
+        }
+
+        /* Navigation links */
+        .site-nav {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .site-nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 700;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .site-nav a:hover {
+            background: rgba(99, 102, 241, 0.08);
+            color: var(--primary);
+        }
+
+        /* Floating WhatsApp button */
+        .floating-whatsapp {
+            position: fixed;
+            right: 18px;
+            bottom: 24px;
+            z-index: 3000;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 12px 14px;
+            border-radius: 999px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.18);
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.12s ease, box-shadow 0.12s ease;
+        }
+
+        .floating-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(37, 211, 102, 0.22);
+        }
+
+        .floating-whatsapp .wa-icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            line-height: 20px;
+            font-size: 16px;
+        }
+
+        @media (max-width: 480px) {
+            .floating-whatsapp { right: 12px; bottom: 18px; padding: 10px 12px; }
         }
 
         /* Theme Toggle */
@@ -718,7 +775,13 @@
     <!-- Header -->
     <div class="header">
         <div class="header-content">
-            <div class="header-title">💰 Income Tax Calculator FY 2025-26</div>
+            <div style="display:flex;align-items:center;gap:20px;">
+                <div class="header-title">ARS FINANCIAL SOLUTIONS INCOME TAX CALCULATOR</div>
+                <nav class="site-nav" aria-label="Main navigation">
+                    <a href="index.html">Home</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </div>
             <div class="header-controls">
                 <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
                     <span>🌙</span>
@@ -730,6 +793,11 @@
     </div>
 
     <!-- Main Container -->
+    <!-- Floating WhatsApp Button -->
+    <a class="floating-whatsapp" href="https://wa.me/917092825687?text=Hello%20ARS%20Financial%20Solutions" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <span class="wa-icon">📱</span>
+        <span>WhatsApp</span>
+    </a>
     <div class="container">
         <div class="grid">
             <!-- Left Column: Inputs -->
