@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GST Filing | ARS Financial Solutions</title>
+<meta name="description" content="Professional GST filing and compliance services for businesses, traders, and professionals by ARS Financial Solutions." />
+<link rel="canonical" href="https://www.arsfinancialsolutions.com/gst-filing.html" />
+<style>
+:root{
+  --bg:#f3f7ff;
+  --bg-surface:#ffffff;
+  --text:#102a43;
+  --muted:#475569;
+  --blue:#1d4ed8;
+  --blue-dark:#1e40af;
+  --blue-soft:#eff6ff;
+  --border:rgba(226,232,240,0.9);
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+body{
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+button{font:inherit;}
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 10%;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(15,23,43,0.08);
+  transition:box-shadow .25s ease;
+}
+header.scrolled{box-shadow:0 24px 50px rgba(15,23,43,0.08);}
+.brand{font-size:1.15rem;font-weight:800;color:var(--blue-dark);}
+nav{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+nav a{font-size:0.95rem;font-weight:700;color:var(--blue-dark);background:rgba(29,78,216,0.08);padding:10px 18px;border-radius:999px;transition:background .2s ease,color .2s ease,transform .2s ease;}
+nav a:hover{background:rgba(29,78,216,0.16);transform:translateY(-1px);}
+nav a.active{background:var(--blue);color:#fff;}
+.hero{
+  min-height:92vh;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:3rem;
+  align-items:center;
+  padding:0 10%;
+  background:linear-gradient(135deg,#eef6ff 0%,#f8fbff 35%,#ffffff 100%);
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  width:360px;
+  height:360px;
+  border-radius:50%;
+  top:-80px;
+  right:-120px;
+  background:rgba(29,78,216,0.14);
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  bottom:-60px;
+  left:-90px;
+  background:rgba(59,130,246,0.12);
+}
+.hero-content{position:relative;}
+.hero-label{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:24px;
+  padding:12px 18px;
+  background:rgba(29,78,216,0.12);
+  border-radius:999px;
+  color:var(--blue-dark);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.hero-title{
+  font-size:clamp(2.8rem,4vw,4.2rem);
+  line-height:1.02;
+  margin-bottom:24px;
+}
+.hero-text{
+  max-width:720px;
+  margin-bottom:32px;
+  color:var(--muted);
+  font-size:1.05rem;
+}
+.hero-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:32px;}
+.hero-card{
+  background:var(--bg-surface);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:22px 20px;
+  box-shadow:0 18px 40px rgba(15,23,43,0.05);
+}
+.hero-card span{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:12px;background:rgba(29,78,216,0.1);color:var(--blue-dark);margin-right:12px;font-weight:800;}
+.hero-card p{color:var(--muted);font-size:.97rem;line-height:1.75;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:40px;}
+.button-primary,
+.button-secondary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px 32px;
+  border-radius:999px;
+  font-weight:700;
+  transition:transform .2s ease,box-shadow .2s ease;
+  position:relative;
+}
+.button-primary{background:var(--blue);color:#fff;box-shadow:0 20px 40px rgba(29,78,216,0.18);}
+.button-secondary{background:rgba(29,78,216,0.08);color:var(--blue-dark);border:1px solid rgba(29,78,216,0.16);}
+.button-primary:hover,.button-secondary:hover{transform:translateY(-2px);}
+.section{padding:100px 10%;}
+.section h2{font-size:2.7rem;text-align:center;margin-bottom:18px;color:var(--blue-dark);}
+.section p.lead{max-width:700px;margin:0 auto 52px;text-align:center;color:var(--muted);font-size:1.02rem;}
+.grid{display:grid;gap:24px;}
+.cards-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.cards-4{grid-template-columns:repeat(4,minmax(0,1fr));}
+.info-card,
+.plan-card,
+.testimonial-card{
+  background:var(--bg-surface);
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 18px 40px rgba(15,23,43,0.08);
+  border:1px solid var(--border);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.info-card:hover,
+.plan-card:hover,
+.faq-card:hover,
+.testimonial-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(15,23,43,0.1);}
+.info-card h3,
+.plan-card h3,
+.faq-card h3,
+.testimonial-card h3{margin-bottom:18px;color:var(--text);}
+.info-card p,
+.plan-card p,
+.faq-card p,
+.testimonial-card p{color:var(--muted);line-height:1.8;font-size:.98rem;}
+.info-card .icon,
+.plan-card .icon{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:16px;background:rgba(29,78,216,0.12);color:var(--blue-dark);font-size:1.3rem;margin-bottom:20px;}
+.plan-card h2{margin:20px 0;color:var(--blue-dark);font-size:2.1rem;}
+.plan-card ul{list-style:none;margin:20px 0 28px;padding:0;display:grid;gap:12px;}
+.plan-card ul li{position:relative;padding-left:24px;color:var(--muted);}
+.plan-card ul li::before{content:'✓';position:absolute;left:0;top:0;color:var(--blue);font-weight:700;}
+.plan-card .button-secondary{width:100%;}
+.process-list{display:grid;gap:18px;}
+.process-step{display:flex;gap:18px;align-items:flex-start;}
+.process-step strong{display:inline-flex;width:44px;height:44px;align-items:center;justify-content:center;border-radius:14px;background:var(--blue);color:#fff;font-weight:800;}
+.process-step div{max-width:calc(100% - 62px);}
+.faq-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+.cta-banner{background:linear-gradient(90deg,var(--blue),#2563eb);color:#fff;border-radius:28px;padding:40px 48px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;}
+.cta-banner h3{margin:0;font-size:2rem;}
+.cta-banner p{margin:12px 0 0;max-width:620px;color:rgba(255,255,255,0.92);line-height:1.75;}
+.cta-banner a{background:#fff;color:var(--blue);padding:16px 32px;border-radius:999px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;}
+footer{padding:28px 10%;text-align:center;color:var(--muted);}
+.floating-actions{position:fixed;bottom:24px;right:24px;display:flex;flex-direction:column;gap:12px;z-index:999;}
+.floating-actions a{display:flex;align-items:center;gap:10px;padding:14px 18px;border-radius:999px;background:var(--blue);color:#fff;font-weight:700;box-shadow:0 14px 28px rgba(15,23,43,0.18);}
+.floating-actions a.whatsapp{background:#25d366;}
+@media(max-width:1080px){.hero{grid-template-columns:1fr;}.cards-3,.cards-4{grid-template-columns:repeat(2,minmax(0,1fr));}.faq-grid{grid-template-columns:1fr;}.cta-banner{grid-template-columns:1fr;}}
+@media(max-width:768px){header{padding:16px 5%;flex-direction:column;align-items:flex-start;gap:16px;}nav{width:100%;justify-content:flex-start;flex-wrap:wrap;} .hero{padding:70px 5% 90px;} .hero-title{font-size:2.4rem;} .hero-grid{grid-template-columns:1fr;} .hero-metrics{grid-template-columns:1fr;} .hero-actions{flex-direction:column;align-items:stretch;} .cta-banner{padding:32px 24px;} .cards-3,.cards-4{grid-template-columns:1fr;} .process-step{flex-direction:column;align-items:stretch;} .process-step div{max-width:none;} footer{padding:28px 6%;} .floating-actions{right:16px;bottom:16px;} .floating-actions a{padding:12px 16px;font-size:.95rem;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">ARS Financial Solutions</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="service.html">Other Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="itr-filing.html">ITR Filing</a>
+    <a href="gst-filing.html" class="active">GST Filing</a>
+    <a href="contacts.html">Contact</a>
+  </nav>
+</header>
+<main>
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-label">GST Filing Services</div>
+      <h1 class="hero-title">Seamless GST filing and compliance for your business.</h1>
+      <p class="hero-text">File GST returns accurately, stay compliant with deadlines, and avoid notices with our expert GST services for businesses, MSMEs, and professionals.</p>
+      <div class="hero-grid">
+        <div class="hero-card"><span>✔</span><p>GST registration, amendments and regular return filing done on time.</p></div>
+        <div class="hero-card"><span>⚡</span><p>Fast reconciliation support, error correction, and notice response from GST specialists.</p></div>
+        <div class="hero-card"><span>💼</span><p>Support for GSTR-1, GSTR-3B, GSTR-9, GSTR-9C and e-way bill compliance.</p></div>
+        <div class="hero-card"><span>🔒</span><p>Secure handling of your invoices, returns and GST records with filing assurance.</p></div>
+      </div>
+      <div class="hero-actions">
+        <a href="contacts.html" class="button-primary">Talk to an Expert</a>
+        <a href="service.html" class="button-secondary">Explore More Services</a>
+      </div>
+      <div class="hero-metrics">
+        <div class="metric"><strong>1,800+</strong><span>GST clients served</span></div>
+        <div class="metric"><strong>99%</strong><span>On-time filings</span></div>
+        <div class="metric"><strong>24/7</strong><span>Support options</span></div>
+      </div>
+      <div class="trust-strip"><p>Trusted by small businesses, traders and professionals for reliable GST compliance.</p></div>
+    </div>
+  </section>
+  <section class="section" id="benefits">
+    <h2>Why choose ARS for GST filing?</h2>
+    <p class="lead">We simplify GST compliance with accurate filing, proactive reminders, and dedicated support for every return cycle.</p>
+    <div class="grid cards-3">
+      <div class="info-card"><div class="icon">✔</div><h3>Accurate return preparation</h3><p>We verify invoices, reconcile data, and prepare your returns to minimise errors and notices.</p></div>
+      <div class="info-card"><div class="icon">📘</div><h3>GST advisory & filing</h3><p>Get help with registration, return selection, input tax credit and GST audits.</p></div>
+      <div class="info-card"><div class="icon">🛡️</div><h3>Compliance monitoring</h3><p>We track deadlines, manage revisions, and support notice responses for smooth compliance.</p></div>
+    </div>
+  </section>
+  <section class="section" id="process">
+    <h2>Our GST filing process</h2>
+    <p class="lead">A clear, step-by-step process designed to keep your GST filings accurate and on time.</p>
+    <div class="process-list">
+      <div class="process-step"><strong>1</strong><div><h3>Collect invoices</h3><p>Send your sales, purchase and expense invoices securely for reconciliation.</p></div></div>
+      <div class="process-step"><strong>2</strong><div><h3>Reconcile and review</h3><p>We match input tax credit and output tax, address discrepancies, and prepare returns.</p></div></div>
+      <div class="process-step"><strong>3</strong><div><h3>File returns</h3><p>We file your GSTR-1, GSTR-3B, GSTR-9 and other returns electronically on time.</p></div></div>
+      <div class="process-step"><strong>4</strong><div><h3>Support & follow-up</h3><p>Receive confirmation, filing updates and help with notices or GST queries.</p></div></div>
+    </div>
+  </section>
+  <section class="section" id="pricing">
+    <h2>GST Filing Packages</h2>
+    <p class="lead">Choose a package that fits your business size and filing needs, with expert support included.</p>
+    <div class="grid cards-4">
+      <div class="plan-card"><div class="icon">🧾</div><h3>Basic GST Filing</h3><h2>₹499</h2><ul><li>Monthly GSTR-1 & GSTR-3B filing</li><li>Input tax credit reconciliation</li><li>Compliance reminders</li><li>Digital acknowledgement</li></ul><a href="contacts.html" class="button-secondary">Book Now</a></div>
+      <div class="plan-card"><div class="icon">📊</div><h3>Business GST</h3><h2>₹1,499</h2><ul><li>GSTR-1, GSTR-3B, GSTR-4 filing</li><li>GST reconciliation & advisory</li><li>Notice support</li><li>Monthly review</li></ul><a href="contacts.html" class="button-secondary">Book Now</a></div>
+      <div class="plan-card"><div class="icon">🏢</div><h3>MSME GST</h3><h2>₹1,999</h2><ul><li>All return filings including GSTR-9</li><li>GST audit & annual reconciliation</li><li>Amendments and corrections</li><li>Dedicated GST advisor</li></ul><a href="contacts.html" class="button-secondary">Book Now</a></div>
+      <div class="plan-card"><div class="icon">🛡️</div><h3>GST Compliance</h3><h2>₹2,499</h2><ul><li>End-to-end GST compliance</li><li>Input tax credit verification</li><li>Return revisions & notices</li><li>Priority support</li></ul><a href="contacts.html" class="button-secondary">Book Now</a></div>
+    </div>
+  </section>
+  <section class="section secondary" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <p class="lead">Answers to the most common GST questions for businesses and traders.</p>
+    <div class="grid faq-grid">
+      <div class="faq-card"><h3>Which returns do I need to file?</h3><p>Most businesses file GSTR-1 and GSTR-3B every month. Some may also file GSTR-4, GSTR-9 or GSTR-9C depending on turnover and composition.</p></div>
+      <div class="faq-card"><h3>What if I miss a GST deadline?</h3><p>We can help file your return with late fees and ensure future deadlines are tracked to avoid repeated penalties.</p></div>
+      <div class="faq-card"><h3>Can you handle GST reconciliation?</h3><p>Yes. We reconcile your purchase and sales data, claim the correct ITC and resolve mismatches before filing.</p></div>
+      <div class="faq-card"><h3>Do you assist with GST notices?</h3><p>Absolutely. We review notices, prepare responses and support communication with GST authorities.</p></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="cta-banner">
+      <div><h3>Ready to simplify your GST compliance?</h3><p>Contact us for reliable GST filing services and stay on top of your returns every month.</p></div>
+      <a href="contacts.html">Contact Our Team</a>
+    </div>
+  </section>
+</main>
+<footer>© 2026 ARS Financial Solutions. All rights reserved.</footer>
+<div class="floating-actions">
+  <a class="whatsapp" href="https://wa.me/917092825687" target="_blank">💬 WhatsApp Us</a>
+  <a href="tel:+917092825687">📞 Call Now</a>
+</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.querySelector('header').classList.toggle('scrolled',window.scrollY>40);
+});
+const links=document.querySelectorAll('nav a');
+links.forEach(link=>{const href=link.getAttribute('href');if(href.startsWith('#')){link.addEventListener('click',e=>{e.preventDefault();document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});});}});
+</script>
+</body>
+</html>
