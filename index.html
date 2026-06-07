@@ -88,16 +88,46 @@ nav.scrolled{
 .nav-btn:hover{background:var(--gold) !important;color:var(--bg) !important}
 .nav-btn::after{display:none !important}
 .nav-highlight{
-  padding:9px 22px;color:var(--bg);
-  border:1px solid rgb(255, 255, 255);
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:9px 22px;color:var(--bg) !important;
+  border:1px solid #ffffff;
   border-radius:999px;
-  background:#000000;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  background:#ffffff !important;
+  box-shadow:0 10px 30px rgba(200,161,78,0.25);
   transition:all 0.3s;
+  animation:zoomPulse 2.2s ease-in-out infinite;
+  transform-origin:center;
+  font-weight:700;
+}
+.nav-highlight::before{
+  content:'NEW';
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:2px 8px;
+  border-radius:999px;
+  background:#ef4444;
+  color:#ffffff;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  box-shadow:0 6px 16px rgba(0,0,0,0.15);
 }
 .nav-highlight:hover{
-  background:#003985;
-  color:var(--bg);
+  background:var(--gold) !important;
+  color:var(--bg) !important;
+  animation-play-state:paused;
+}
+@keyframes zoomPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
 }
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--txt2);transition:all 0.3s}
