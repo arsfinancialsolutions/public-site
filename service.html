@@ -2,267 +2,386 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<!-- REQUIRED FOR MOBILE -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Our Services | ARS Financial Solutions</title>
 <meta name="description" content="Professional Accounting, GST, Income Tax, ROC Compliance and Audit Support services by ARS Financial Solutions.">
 <link rel="canonical" href="https://www.arsfinancialsolutions.com/service.html">
-
 <style>
-*{box-sizing:border-box}
+:root{
+  --bg:#f3f7ff;
+  --bg-surface:#ffffff;
+  --text:#102a43;
+  --muted:#475569;
+  --blue:#1d4ed8;
+  --blue-dark:#1e40af;
+  --blue-soft:#eff6ff;
+  --border:rgba(226,232,240,0.9);
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
 body{
-    margin:0;
-    font-family:Poppins,Arial,sans-serif;
-    background:#f4f6f9;
-    color:#1f2933
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
 }
-
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:40px 20px
+a{color:inherit;text-decoration:none;}
+button{font:inherit;}
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 10%;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(15,23,43,0.08);
+  transition:box-shadow .25s ease;
 }
-
-h1{
-    text-align:center;
-    color:#0f4c81;
-    margin-bottom:20px
+header.scrolled{box-shadow:0 24px 50px rgba(15,23,43,0.08);}
+.brand{font-size:1.15rem;font-weight:800;color:var(--blue-dark);}
+nav{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+nav a{font-size:0.95rem;font-weight:700;color:var(--blue-dark);background:rgba(29,78,216,0.08);padding:10px 18px;border-radius:999px;transition:background .2s ease,color .2s ease,transform .2s ease;}
+nav a:hover{background:rgba(29,78,216,0.16);transform:translateY(-1px);}
+nav a.active{background:var(--blue);color:#fff;}
+.hero{
+  min-height:78vh;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2.5rem;
+  align-items:center;
+  padding:0 10% 60px;
+  background:linear-gradient(135deg,#eef6ff 0%,#f8fbff 35%,#ffffff 100%);
+  overflow:hidden;
 }
-
-/* Tabs */
-.service-tabs{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:12px;
-    margin:25px 0
+.hero::before{
+  content:'';
+  position:absolute;
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  top:-80px;
+  right:-120px;
+  background:rgba(29,78,216,0.14);
 }
-
-.tab-btn{
-    padding:12px 22px;
-    border:none;
-    border-radius:30px;
-    background:#e5e7eb;
-    cursor:pointer;
-    font-weight:600;
-    transition:.3s
+.hero::after{
+  content:'';
+  position:absolute;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  bottom:-60px;
+  left:-90px;
+  background:rgba(59,130,246,0.12);
 }
-
-.tab-btn:hover{
-    background:#d1d5db
+.hero-content{position:relative;z-index:1;}
+.hero-label{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:24px;
+  padding:12px 18px;
+  background:rgba(29,78,216,0.12);
+  border-radius:999px;
+  color:var(--blue-dark);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
 }
-
-.tab-btn.active{
-    background:#0f4c81;
-    color:#fff
+.hero-title{
+  font-size:clamp(2.8rem,4vw,4.2rem);
+  line-height:1.02;
+  margin-bottom:24px;
 }
-
-/* Service box */
-.service-box{
-    display:none;
-    background:#fff;
-    padding:35px;
-    border-radius:16px;
-    box-shadow:0 12px 28px rgba(0,0,0,.08)
+.hero-text{
+  max-width:720px;
+  margin-bottom:32px;
+  color:var(--muted);
+  font-size:1.05rem;
 }
-
-.service-box.active{display:block}
-
-.service-box h2{
-    color:#0f4c81;
-    margin-top:0
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:40px;}
+.button-primary,
+.button-secondary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px 32px;
+  border-radius:999px;
+  font-weight:700;
+  transition:transform .2s ease,box-shadow .2s ease;
+  position:relative;
 }
-
-ul{
-    line-height:1.8;
-    padding-left:18px
+.button-primary{background:var(--blue);color:#fff;box-shadow:0 20px 40px rgba(29,78,216,0.18);}
+.button-secondary{background:rgba(29,78,216,0.08);color:var(--blue-dark);border:1px solid rgba(29,78,216,0.16);}
+.button-primary:hover,.button-secondary:hover{transform:translateY(-2px);}
+.section{padding:80px 10%;}
+.section h2{font-size:2.7rem;text-align:center;margin-bottom:18px;color:var(--blue-dark);}
+.section p.lead{max-width:700px;margin:0 auto 52px;text-align:center;color:var(--muted);font-size:1.02rem;}
+.service-grid,
+.cards-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));grid-auto-rows:1fr;gap:24px;}
+.service-card{
+  display:flex;
+  flex-direction:column;
+  background:var(--bg-surface);
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 18px 40px rgba(15,23,43,0.08);
+  border:1px solid var(--border);
+  transition:transform .25s ease,box-shadow .25s ease;
 }
-
-.cta{
-    margin-top:25px
+.service-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(15,23,43,0.1);}
+.service-card h3{margin-bottom:18px;color:var(--blue-dark);}
+.service-card p{color:var(--muted);margin-bottom:18px;line-height:1.8;}
+.service-card ul{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:12px;}
+.service-card ul li{position:relative;padding-left:24px;color:var(--muted);}
+.service-card ul li::before{content:'✓';position:absolute;left:0;top:0;color:var(--blue);font-weight:700;}
+.service-card a{display:inline-flex;width:100%;justify-content:center;margin-top:auto;padding:14px 24px;border-radius:999px;background:var(--blue);color:#fff;font-weight:700;transition:transform .2s ease;}
+.service-card a:hover{transform:translateY(-2px);}
+.cards-4{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;}
+.plan-card{
+  display:flex;
+  flex-direction:column;
+  min-height:440px;
+  background:linear-gradient(180deg,rgba(255,255,255,1) 0%,rgba(239,246,255,0.95) 100%);
+  border-radius:28px;
+  padding:36px;
+  box-shadow:0 24px 60px rgba(15,23,43,0.08);
+  border:1px solid rgba(29,78,216,0.16);
+  transition:transform .25s ease,box-shadow .25s ease;
+  position:relative;
+  overflow:hidden;
 }
-
-.btn{
-    background:#f2a900;
-    padding:14px 30px;
-    border-radius:30px;
-    text-decoration:none;
-    color:#000;
-    font-weight:700;
-    display:inline-block
+.plan-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:24px;
+  width:56px;
+  height:4px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--blue),#2563eb);
 }
-
-/* contactus Button */
-.contactus{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:#fff;
-    padding:14px 18px;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:bold;
-    z-index:999
+.plan-card:hover{transform:translateY(-6px);box-shadow:0 32px 70px rgba(15,23,43,0.12);}
+.plan-card h3{
+  margin-bottom:10px;
+  color:var(--blue);
+  font-size:1rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
 }
-
-/* =========================
-   MOBILE RESPONSIVE
-   ========================= */
-@media(max-width:768px){
-
-.container{
-    padding:25px 15px
+.plan-card h2{
+  margin:0 0 20px;
+  color:var(--blue-dark);
+  font-size:2.6rem;
+  line-height:1;
 }
-
-h1{
-    font-size:1.6rem
+.plan-card ul{
+  list-style:none;
+  margin:20px 0 30px;
+  padding:0;
+  display:grid;
+  gap:14px;
 }
-
-/* Horizontal scroll tabs */
-.service-tabs{
-    flex-wrap:nowrap;
-    overflow-x:auto;
-    justify-content:flex-start;
-    padding-bottom:10px
+.plan-card ul li{
+  position:relative;
+  padding-left:26px;
+  color:var(--muted);
+  line-height:1.8;
 }
-
-.service-tabs::-webkit-scrollbar{
-    display:none
+.plan-card ul li::before{
+  content:'✓';
+  position:absolute;
+  left:0;
+  top:0;
+  color:var(--blue);
+  font-weight:700;
 }
-
-.tab-btn{
-    white-space:nowrap;
-    flex-shrink:0;
-    font-size:.9rem;
-    padding:10px 18px
+.plan-card a{
+  display:inline-flex;
+  width:100%;
+  justify-content:center;
+  margin-top:auto;
+  padding:16px 24px;
+  border-radius:999px;
+  background:var(--blue);
+  color:#fff;
+  font-weight:700;
+  transition:transform .2s ease,box-shadow .2s ease;
 }
-
-.service-box{
-    padding:25px
-}
-
-.btn{
-    width:100%;
-    text-align:center
-}
-
-.contact us{
-    bottom:15px;
-    right:15px;
-    padding:12px 16px;
-    font-size:.9rem
-}
-}
+.plan-card a:hover{transform:translateY(-2px);box-shadow:0 16px 30px rgba(29,78,216,0.18);}
+.footer{padding:28px 10%;text-align:center;color:var(--muted);}
+.floating-actions{position:fixed;bottom:24px;right:24px;display:flex;flex-direction:column;gap:12px;z-index:999;}
+.floating-actions a{display:flex;align-items:center;gap:10px;padding:14px 18px;border-radius:999px;background:var(--blue);color:#fff;font-weight:700;box-shadow:0 14px 28px rgba(15,23,43,0.18);}
+.floating-actions a.whatsapp{background:#25d366;}
+@media(max-width:1080px){.service-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.cards-4{grid-template-columns:repeat(2,minmax(0,1fr));}} 
+@media(max-width:768px){header{padding:16px 5%;flex-direction:column;align-items:flex-start;gap:16px;}nav{width:100%;justify-content:flex-start;flex-wrap:wrap;}.hero{padding:70px 5% 90px;}.hero-title{font-size:2.4rem;}.hero-actions{flex-direction:column;align-items:stretch;}.section{padding:60px 5%;}.service-grid{grid-template-columns:1fr;}.service-card{padding:28px;}.footer{padding:28px 6%;}.floating-actions{right:16px;bottom:16px;}.floating-actions a{padding:12px 16px;font-size:.95rem;}}
 </style>
 </head>
-
 <body>
-
-<div class="container">
-<h1>ARS FINANCIAL SOLUTIONS</h1>    
-<h1>Our Professional Services</h1>
-
-<div class="service-tabs">
-<button class="tab-btn active" onclick="openService(event,'accounting')">Accounting</button>
-<button class="tab-btn" onclick="openService(event,'gst')">GST</button>
-<button class="tab-btn" onclick="openService(event,'income')">Income Tax</button>
-<button class="tab-btn" onclick="openService(event,'registration')">Registration</button>
-<button class="tab-btn" onclick="openService(event,'roc')">Compliance & Regulatory Services</button>
-<button class="tab-btn" onclick="openService(event,'audit')">Audit Support</button>
+<header>
+  <div class="brand">ARS Financial Solutions</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="service.html" class="active">Other Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="itr-filing.html">ITR Filing</a>
+    <a href="gst-filing.html">GST Filing</a>
+    <a href="contacts.html">Contact</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-label">Our Services</div>
+      <h1 class="hero-title">Professional financial services to support your business growth.</h1>
+      <p class="hero-text">Explore our range of accounting, GST, income tax, compliance and audit services delivered with speed, accuracy and expert guidance.</p>
+      <div class="hero-actions">
+        <a href="contacts.html" class="button-primary">Talk to an Expert</a>
+        <a href="gst-filing.html" class="button-secondary">Explore GST Filing</a>
+        <a href="itr-filing.html" class="button-secondary">Explore Income Tax Filing</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <h2>Services We Offer</h2>
+    <p class="lead">From startups to established firms, our team provides end-to-end financial compliance and advisory services tailored to your needs.</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Accounting & Bookkeeping</h3>
+        <p>Accurate bookkeeping, MIS reports and financial statements to keep your business on track.</p>
+        <ul>
+          <li>Bookkeeping & ledger maintenance</li>
+          <li>Monthly / quarterly MIS reports</li>
+          <li>Balance sheet & P&L preparation</li>
+          <li>Startup & SME accounting support</li>
+        </ul>
+        <a href="contacts.html">Get Accounting Help</a>
+      </div>
+      <div class="service-card">
+        <h3>GST Compliance</h3>
+        <p>Full GST support including registration, return filing, reconciliation and audit readiness.</p>
+        <ul>
+          <li>GST registration & amendments</li>
+          <li>Monthly / annual return filing</li>
+          <li>GST audit & reconciliation</li>
+          <li>Notice reply & advisory</li>
+        </ul>
+        <a href="gst-filing.html">Explore GST Filing</a>
+      </div>
+      <div class="service-card">
+        <h3>Income Tax Services</h3>
+        <p>Complete tax filing and planning for individuals, professionals, and businesses.</p>
+        <ul>
+          <li>ITR filing for individuals, firms, companies</li>
+          <li>Tax planning & savings advisory</li>
+          <li>Scrutiny & notice handling</li>
+          <li>Advance tax & compliance</li>
+        </ul>
+        <a href="itr-filing.html">File Income Tax</a>
+      </div>
+      <div class="service-card">
+        <h3>Entity Registration</h3>
+        <p>Fast and compliant registration services for corporations, partnerships and MSMEs.</p>
+        <ul>
+          <li>GST registration</li>
+          <li>Company & LLP incorporation</li>
+          <li>PAN & TAN applications</li>
+          <li>IEC, FSSAI & GeM registrations</li>
+        </ul>
+        <a href="contacts.html">Start Registration</a>
+      </div>
+      <div class="service-card">
+        <h3>ROC & MCA Compliance</h3>
+        <p>Reliable corporate compliance support for annual filings and statutory requirements.</p>
+        <ul>
+          <li>Annual ROC filings</li>
+          <li>Director KYC & DIN services</li>
+          <li>Event-based MCA compliance</li>
+          <li>Corporate document maintenance</li>
+        </ul>
+        <a href="contacts.html">Compliance Support</a>
+      </div>
+      <div class="service-card">
+        <h3>Audit Support</h3>
+        <p>Professional audit assistance, document preparation and compliance review services.</p>
+        <ul>
+          <li>Statutory & internal audit support</li>
+          <li>GST & tax audit assistance</li>
+          <li>Documentation & report preparation</li>
+          <li>Audit readiness review</li>
+        </ul>
+        <a href="contacts.html">Request Audit Help</a>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="pricing">
+    <h2>Pricing Plans</h2>
+    <p class="lead">Choose the right package for your business needs with clear pricing and expert support.</p>
+    <div class="grid cards-4">
+      <div class="plan-card">
+        <h3>Starter</h3>
+        <h2>₹999</h2>
+        <ul>
+          <li>Basic accounting review</li>
+          <li>Monthly compliance reminders</li>
+          <li>GST filing support</li>
+          <li>Email support</li>
+        </ul>
+        <a href="contacts.html">Choose Plan</a>
+      </div>
+      <div class="plan-card">
+        <h3>GST Support</h3>
+        <h2>₹1,499</h2>
+        <ul>
+          <li>Monthly GST return filing</li>
+          <li>Invoice reconciliation</li>
+          <li>Notice response support</li>
+          <li>Dedicated GST advisor</li>
+        </ul>
+        <a href="gst-filing.html">Choose Plan</a>
+      </div>
+      <div class="plan-card">
+        <h3>Tax Filing</h3>
+        <h2>₹1,999</h2>
+        <ul>
+          <li>ITR filing for individuals and businesses</li>
+          <li>Tax planning guidance</li>
+          <li>Review and revisions</li>
+          <li>Filing acknowledgement</li>
+        </ul>
+        <a href="itr-filing.html">Choose Plan</a>
+      </div>
+      <div class="plan-card">
+        <h3>Complete Compliance</h3>
+        <h2>₹2,999</h2>
+        <ul>
+          <li>GST, tax and ROC support</li>
+          <li>Audit readiness review</li>
+          <li>Monthly compliance tracking</li>
+          <li>Priority response</li>
+        </ul>
+        <a href="contacts.html">Choose Plan</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer">© 2026 ARS Financial Solutions. All rights reserved.</footer>
+<div class="floating-actions">
+  <a class="whatsapp" href="https://wa.me/917092825687" target="_blank">💬 WhatsApp Us</a>
+  <a href="tel:+917092825687">📞 Call Now</a>
 </div>
-
-<div id="accounting" class="service-box active">
-<h2>Accounting & Bookkeeping</h2>
-<p>Accurate and compliant accounting services to help businesses make informed decisions.</p>
-<ul>
-<li>Bookkeeping & ledger maintenance</li>
-<li>Monthly / quarterly MIS reports</li>
-<li>Balance sheet & P&L preparation</li>
-<li>Startup & SME accounting support</li>
-</ul>
-<div class="cta"><a class="btn" href="contact.html">Get Accounting Support</a></div>
-</div>
-
-<div id="gst" class="service-box">
-<h2>GST Services</h2>
-<p>End-to-end GST compliance and advisory services.</p>
-<ul>
-<li>GST registration & amendments</li>
-<li>Monthly / annual returns filing</li>
-<li>GST audit & reconciliation</li>
-<li>Notice reply & advisory</li>
-</ul>
-<div class="cta"><a class="btn" href="contact.html">GST Consultation</a></div>
-</div>
-
-<div id="income" class="service-box">
-<h2>Income Tax Services</h2>
-<p>Comprehensive income tax solutions for individuals & businesses.</p>
-<ul>
-<li>ITR filing (Individual / Firm / Company)</li>
-<li>Tax planning & savings advisory</li>
-<li>Scrutiny & notice handling</li>
-<li>Advance tax & compliance</li>
-</ul>
-<div class="cta"><a class="btn" href="contact.html">File Income Tax</a></div>
-</div>
-
-<div id="registration" class="service-box">
-<h2>Registration for various entities</h2>
-<p>Comprehensive income tax solutions for individuals & businesses.</p>
-<ul>
-<li>GST Registration</li>
-<li>Company Incorporation</li>
-<li>LLP incorporation</li>
-<li>PAN & TAN Application</li>
-<li>IEC Code Registration</li>
-<li>Trademark Registration</li>
-<li>FSSAI Registration</li>
-<li>GeM Registration</li>
-</ul>
-<div class="cta"><a class="btn" href="contact.html">For Registration</a></div>
-</div>
-
-<div id="roc" class="service-box">
-<h2>ROC & MCA Compliance</h2>
-<p>Complete corporate compliance under Companies Act.</p>
-<ul>
-<li>Company incorporation</li>
-<li>Annual ROC filings</li>
-<li>Director KYC & DIN services</li>
-<li>Event-based MCA compliance</li>
-</ul>
-<div class="cta"><a class="btn" href="contact.html">ROC Compliance Help</a></div>
-</div>
-
-<div id="audit" class="service-box">
-<h2>Audit </h2>
-<p>Professional audit assistance and documentation support.</p>
-<ul>
-<li>Statutory & internal audit support</li>
-<li>GST & tax audit assistance</li>
-<li>Data & document preparation</li>
-<li>Compliance review</li>
-</ul>
-<div class="cta"><a class="btn" href="contact.html">Audit Assistance</a></div>
-</div>
-
-</div>
-
-<a class="contactus" href="contact.html">contact us</a>
-
 <script>
-function openService(e, serviceId){
-    document.querySelectorAll('.service-box').forEach(box=>box.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(btn=>btn.classList.remove('active'));
-    document.getElementById(serviceId).classList.add('active');
-    e.target.classList.add('active');
-}
+window.addEventListener('scroll',()=>{document.querySelector('header').classList.toggle('scrolled',window.scrollY>40);});
 </script>
-
 </body>
 </html>
 
