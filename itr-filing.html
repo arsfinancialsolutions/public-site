@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -128,9 +128,25 @@ nav a:hover,nav a.active{color:var(--blue-dark);}
   border-radius:999px;
   font-weight:700;
   transition:transform .2s ease,box-shadow .2s ease;
+  position:relative;
 }
 .button-primary{background:var(--blue);color:#fff;box-shadow:0 20px 40px rgba(29,78,216,0.18);}
 .button-secondary{background:rgba(29,78,216,0.08);color:var(--blue-dark);border:1px solid rgba(29,78,216,0.16);}
+.button-new::before{
+  content:'NEW';
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  background:#ef4444;
+  color:#fff;
+  padding:4px 9px;
+  border-radius:999px;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  box-shadow:0 12px 24px rgba(0,0,0,0.15);
+}
 .button-primary:hover,.button-secondary:hover{transform:translateY(-2px);}
 .hero-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
 .metric{
@@ -205,7 +221,7 @@ footer{padding:28px 10%;text-align:center;color:var(--muted);}
 .floating-actions a{display:flex;align-items:center;gap:10px;padding:14px 18px;border-radius:999px;background:var(--blue);color:#fff;font-weight:700;box-shadow:0 14px 28px rgba(15,23,43,0.18);}
 .floating-actions a.whatsapp{background:#25d366;}
 @media(max-width:1080px){.hero{grid-template-columns:1fr;}.cards-3,.cards-4{grid-template-columns:repeat(2,minmax(0,1fr));}.faq-grid{grid-template-columns:1fr;}.cta-banner{grid-template-columns:1fr;}}
-@media(max-width:768px){header{padding:18px 6%;flex-direction:column;align-items:flex-start;gap:16px;}nav{width:100%;justify-content:flex-start;flex-wrap:wrap;} .hero{padding:80px 6% 100px;} .hero-title{font-size:2.8rem;} .hero-grid{grid-template-columns:1fr;} .hero-metrics{grid-template-columns:1fr;} .hero-actions{flex-direction:column;align-items:stretch;} .cta-banner{padding:32px;}}
+@media(max-width:768px){header{padding:16px 5%;flex-direction:column;align-items:flex-start;gap:16px;}nav{width:100%;justify-content:flex-start;flex-wrap:wrap;} .hero{padding:70px 5% 90px;} .hero-title{font-size:2.4rem;} .hero-grid{grid-template-columns:1fr;} .hero-metrics{grid-template-columns:1fr;} .hero-actions{flex-direction:column;align-items:stretch;} .cta-banner{padding:32px 24px;} .cards-3,.cards-4{grid-template-columns:1fr;} .process-step{flex-direction:column;align-items:stretch;} .process-step div{max-width:none;} footer{padding:28px 6%;} .floating-actions{right:16px;bottom:16px;} .floating-actions a{padding:12px 16px;font-size:.95rem;}}
 </style>
 </head>
 <body>
@@ -223,16 +239,17 @@ footer{padding:28px 10%;text-align:center;color:var(--muted);}
   <section class="hero" id="home">
     <div class="hero-content">
       <div class="hero-label">ITR Filing Services</div>
-      <h1 class="hero-title">Professional ITR filing with fast turnaround and expert support.</h1>
-      <p class="hero-text">File your income tax return confidently with ARS Financial Solutions. We handle your ITR preparation, review, e-filing and acknowledgement so you can stay focused on your business.</p>
+      <h1 class="hero-title">Easy ITR filing with fast turnaround and expert guidance.</h1>
+      <p class="hero-text">File your income tax return with confidence. We take care of preparation, review, e-filing and acknowledgement tracking so you can focus on what matters.</p>
       <div class="hero-grid">
-        <div class="hero-card"><span>1</span><p>Complete filing support for ITR-1 through ITR-6.</p></div>
-        <div class="hero-card"><span>✓</span><p>Expert review to validate deductions and maximize legal savings.</p></div>
-        <div class="hero-card"><span>⚡</span><p>Fast response, precise submission and acknowledgement tracking.</p></div>
-        <div class="hero-card"><span>🔒</span><p>Secure document handling with personal advisor support.</p></div>
+        <div class="hero-card"><span>1</span><p>Support for ITR-1 through ITR-6, tailored to your situation.</p></div>
+        <div class="hero-card"><span>✓</span><p>We review your return to verify deductions and help you claim eligible savings.</p></div>
+        <div class="hero-card"><span>⚡</span><p>Quick turnaround, accurate submission and help tracking your acknowledgement.</p></div>
+        <div class="hero-card"><span>🔒</span><p>Secure document handling with a personal advisor ready to help.</p></div>
       </div>
       <div class="hero-actions">
         <a href="contacts.html" class="button-primary">Start ITR Filing</a>
+        <a href="income-tax-calculator.html" class="button-secondary button-new">Use Tax Calculator</a>
         <a href="tel:+917092825687" class="button-secondary">Speak with an Expert</a>
       </div>
       <div class="hero-metrics">
@@ -247,19 +264,19 @@ footer{padding:28px 10%;text-align:center;color:var(--muted);}
     <h2>Why Choose ARS for ITR Filing?</h2>
     <p class="lead">Our experienced tax team delivers accurate, compliant ITR filing with clear communication and no surprises.</p>
     <div class="grid cards-3">
-      <div class="info-card"><div class="icon">✔</div><h3>Fast & Secure Filing</h3><p>We prepare your return quickly while verifying every detail to avoid delays and notices.</p></div>
-      <div class="info-card"><div class="icon">📘</div><h3>Expert Tax Advice</h3><p>Receive personalised guidance on deductions, exemptions and refund claims for your profile.</p></div>
-      <div class="info-card"><div class="icon">🛡️</div><h3>Complete Compliance</h3><p>All filings are reviewed for legal accuracy and readiness for any future assessment.</p></div>
+      <div class="info-card"><div class="icon">✔</div><h3>Fast & Secure Filing</h3><p>We prepare your return quickly and check every detail so you avoid delays and notices.</p></div>
+      <div class="info-card"><div class="icon">📘</div><h3>Expert Tax Advice</h3><p>Get personalised guidance on deductions, exemptions, and refunds for your income.</p></div>
+      <div class="info-card"><div class="icon">🛡️</div><h3>Complete Compliance</h3><p>We review every filing for accuracy and keep you ready for any follow-up questions.</p></div>
     </div>
   </section>
   <section class="section" id="process">
     <h2>Our ITR Filing Process</h2>
     <p class="lead">A transparent, step-by-step process designed to make tax filing effortless.</p>
     <div class="process-list">
-      <div class="process-step"><strong>1</strong><div><h3>Submit your documents</h3><p>Provide Form 16, bank summaries, investment proofs and income details securely.</p></div></div>
-      <div class="process-step"><strong>2</strong><div><h3>Review and validate</h3><p>Our experts review your data, verify deductions and optimize your return legally.</p></div></div>
-      <div class="process-step"><strong>3</strong><div><h3>Prepare and file</h3><p>We complete the correct ITR form, validate the return and submit it electronically.</p></div></div>
-      <div class="process-step"><strong>4</strong><div><h3>Confirmation & support</h3><p>Receive ITR acknowledgement and ongoing support for refund or assessment queries.</p></div></div>
+      <div class="process-step"><strong>1</strong><div><h3>Submit your documents</h3><p>Share Form 16, bank summaries, investment proofs and income details safely.</p></div></div>
+      <div class="process-step"><strong>2</strong><div><h3>Review and validate</h3><p>We review your information, verify deductions, and make sure your return is correct.</p></div></div>
+      <div class="process-step"><strong>3</strong><div><h3>Prepare and file</h3><p>We fill the right ITR form, validate it, and file it electronically for you.</p></div></div>
+      <div class="process-step"><strong>4</strong><div><h3>Confirmation & support</h3><p>You receive the ITR acknowledgement plus support for refunds or any follow-up questions.</p></div></div>
     </div>
   </section>
   <section class="section secondary" id="testimonials">
@@ -273,7 +290,7 @@ footer{padding:28px 10%;text-align:center;color:var(--muted);}
   </section>
   <section class="section" id="pricing">
     <h2>ITR Filing Packages</h2>
-    <p class="lead">Select the right package for your tax situation. Each plan includes expert review and post-filing support.</p>
+    <p class="lead">Pick the package that fits your tax situation. Every plan comes with expert review and post-filing help.</p>
     <div class="grid cards-4">
       <div class="plan-card"><div class="icon">👔</div><h3>Salaried Employee</h3><h2>₹499</h2><ul><li>ITR-1 filing for salaried individuals</li><li>Salary & investment income review</li><li>Standard deduction support</li><li>Digital acknowledgement</li></ul><a href="contacts.html" class="button-secondary">Book Now</a></div>
       <div class="plan-card"><div class="icon">🧾</div><h3>Individual</h3><h2>₹999</h2><ul><li>ITR-1 / ITR-2 / ITR-4 filings</li><li>Salary, interest, and other income</li><li>Deduction optimization</li><li>1 round of revision</li></ul><a href="contacts.html" class="button-secondary">Book Now</a></div>
@@ -285,8 +302,8 @@ footer{padding:28px 10%;text-align:center;color:var(--muted);}
     <h2>Frequently Asked Questions</h2>
     <p class="lead">Clear answers to the most common ITR filing questions.</p>
     <div class="grid faq-grid">
-      <div class="faq-card"><h3>Do I need help even if I am salaried?</h3><p>Yes. We review your deductions, income sources and investment proofs to ensure correct filing and maximum refund eligibility.</p></div>
-      <div class="faq-card"><h3>What documents are required?</h3><p>Form 16, bank statements, interest certificates, investment proofs, PAN, Aadhaar and any business or rental income details.</p></div>
+      <div class="faq-card"><h3>Do I need help even if I am salaried?</h3><p>Yes. We check your deductions, income sources and investment proofs so your filing is correct and you don't miss refunds.</p></div>
+      <div class="faq-card"><h3>What documents are required?</h3><p>Form 16, bank statements, interest certificates, investment proofs, PAN, Aadhaar, and any business or rental income information.</p></div>
       <div class="faq-card"><h3>Can you file a revised return?</h3><p>Absolutely. If you discover an error after filing, we can prepare and submit a revised return on your behalf.</p></div>
       <div class="faq-card"><h3>How do I verify my ITR?</h3><p>We guide you through digital verification using Aadhaar OTP, net banking or by sending a signed ITR-V to CPC Bangalore.</p></div>
     </div>
