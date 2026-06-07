@@ -150,6 +150,11 @@ nav a.active{background:var(--blue);color:#fff;}
   border:1px solid var(--border);
   transition:transform .25s ease,box-shadow .25s ease;
 }
+.plan-card{
+  display:flex;
+  flex-direction:column;
+  min-height:400px;
+}
 .info-card:hover,
 .plan-card:hover,
 .faq-card:hover,
@@ -168,7 +173,7 @@ nav a.active{background:var(--blue);color:#fff;}
 .plan-card ul{list-style:none;margin:20px 0 28px;padding:0;display:grid;gap:12px;}
 .plan-card ul li{position:relative;padding-left:24px;color:var(--muted);}
 .plan-card ul li::before{content:'✓';position:absolute;left:0;top:0;color:var(--blue);font-weight:700;}
-.plan-card .button-secondary{width:100%;}
+.plan-card .button-secondary{width:100%;margin-top:auto;}
 .process-list{display:grid;gap:18px;}
 .process-step{display:flex;gap:18px;align-items:flex-start;}
 .process-step strong{display:inline-flex;width:44px;height:44px;align-items:center;justify-content:center;border-radius:14px;background:var(--blue);color:#fff;font-weight:800;}
@@ -215,7 +220,7 @@ footer{padding:28px 10%;text-align:center;color:var(--muted);}
         <a href="service.html" class="button-secondary">Explore More Services</a>
       </div>
       <div class="hero-metrics">
-        <div class="metric"><strong>150+</strong><span>GST clients served</span></div>
+        <div class="metric"><strong>1,800+</strong><span>GST clients served</span></div>
         <div class="metric"><strong>99%</strong><span>On-time filings</span></div>
         <div class="metric"><strong>24/7</strong><span>Support options</span></div>
       </div>
